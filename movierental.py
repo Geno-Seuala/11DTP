@@ -6,6 +6,8 @@ inventory = []
 returned = []
 
 def menu():
+    """Prints a menu for the user to choose an operation
+    """    
     while True:
         try:
             select = int(input("""
@@ -14,7 +16,8 @@ def menu():
         2: To Search the available Movies
         3: To Rent a Movie
         4: To Return a Movie
-        5: To Print a Report
+        5: To Print a Rental Report
+        6: To Exit
 
 """))
             break
@@ -23,14 +26,20 @@ def menu():
     return select
 
 def add():
+    """Adds a movie to the stores stock
+    """        
     print("Add was selected")
+    print("These are the movies we currently have:", movies)
     movie = input("""
     Please enter the name of the movie that you wish to add:
     """)
     movies.append(movie)
+    print("Movies in stock:", movies)
 
 
 def search():
+    """Allows the user to search within the stores stock for a movie
+    """    
     print("Search was selected")
     movie = input("""
     Please enter the name of the movie that
@@ -39,12 +48,16 @@ def search():
     if movie in movies:
         print(movie, "is available to rent!")
     elif movie in inventory:
-        print(movie, "is already in inventory")
+        print(movie, "is already in cart")
     else:
         print(movie, "is not offered by us")
 
 def rent():
+    """Removes a movie from the stores stock and adds it into
+    the users cart
+    """    
     print("Rent was selected")
+    print("Here are the movies we have:", movies)
     movie = input("""
     Please enter the name of the movie that
     you wish to rent:
@@ -52,11 +65,14 @@ def rent():
     if movie in movies:
         inventory.append(movie)
         movies.remove(movie)
-        print(movie, "Added to order.")
+        print(movie, "Added to cart.")
     else:
         print(movie, "Is not our movie list.")
 
 def return_movie():
+    """Removes a movie from the users cart and adds it into
+    the stores stock
+    """    
     print("Return Movie was selected")
     movie = input("""
     Please enter the title of the move that you
@@ -68,13 +84,19 @@ def return_movie():
         returned.append(movie)
 
 def report():
+    """Print the users cart, the stores stock, and the movies that
+    the user had taken out and returned to the store
+    """    
     print("Report was selected")
     print("Returned movies:", returned)
-    print("Inventory:", inventory)
+    print("Cart:", inventory)
     print("Movies we have:", movies)
 
 
 def main():
+    """Calls any of the operations depending on what the user
+    selects in menu()
+    """    
     while True:
         selected = menu()
         if selected == 1:
@@ -87,7 +109,11 @@ def main():
             return_movie()
         elif selected == 5:
             report()
+        elif selected == 6:
+            break
         else:
-            print("Only select numbers 1 to 5")
+            print("Only select numbers 1 to 6")
+
+# Runs the program
 
 main()
