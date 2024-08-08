@@ -1,3 +1,6 @@
+from multiprocessing import Value
+
+
 start = int(input('Welcome to Geno\'s calculator V2! Please enter \"1\" to proceed: '))
 if start == 1:
     valuecount = int(input('Great! How many values will you use in your equation? (2 or 3): '))
@@ -18,7 +21,7 @@ if start == 1:
         elif operation == 3:
             print(value1,' x ',value2,' = ',value1*value2)
         else:
-            if value3 != 0:
+            if Value != 0:
                 print(value1,' / ',value2,' = ',value1/value2)
             else:
                 print('Error: Division by zero is not allowed')
