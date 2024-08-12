@@ -8,6 +8,7 @@ order = []
 
 name = str(input("Welcome to Bob's coffee shop! What is your name?; "))
 
+
 def randomprice():
     """
     Generates a random price from $4 to $6.50 to sell coffee at
@@ -15,6 +16,7 @@ def randomprice():
     prices = [4.50, 6, 3.50, 5, 4, 5.50, 6.50]
     price = random.choice(prices)
     return price
+
 
 # Prints drinks menu, user to input a drink and adds to order
 while True:
@@ -46,7 +48,7 @@ while True:
             price2 = randomprice()
             print(order[1], " - $", price2)
         except:
-            price2 = 0 
+            price2 = 0
         try:
             price3 = randomprice()
             print(order[2], " - $", price3)

@@ -1,7 +1,7 @@
 import random
 
-def asknum(range):
 
+def asknum(range):
     '''
     Asks the user to enter a number from one to five, raises a
     value error if the users input is either not a whole number
@@ -20,8 +20,8 @@ def asknum(range):
             print("be from one to", range, "and a whole number")
     return number
 
-def askquestion(range1):
 
+def askquestion(range1):
     '''
     '''
 
@@ -32,12 +32,13 @@ def askquestion(range1):
         if numinput == random_number:
             print("Good job!")
             break
-        elif numinput > random_number:            
+        elif numinput > random_number:
             print()
             print(numinput, "Is higher than than the mystery number")
-        else:               
+        else:
             print()
             print(numinput, "Is lower than than the mystery number")
+
 
 print("---------------------------------------")
 print()
@@ -46,7 +47,7 @@ print("           What is your name?          ")
 print()
 print("---------------------------------------")
 
-while True: 
+while True:
     name = input('Please input a username: ')
     if any(char.isalpha() for char in name) == False:
         print("Invalid name! please use letters.")

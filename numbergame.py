@@ -1,7 +1,7 @@
 import random
 
-def asknum():
 
+def asknum():
     '''
     Asks the user to enter a number from one to five, raises a
     value error if the users input is either not a whole number
@@ -20,8 +20,8 @@ def asknum():
             print("be from one to five and a whole number")
     return number
 
-def askquestion():
 
+def askquestion():
     '''
     Asks the user to enter a value from 1 to 5, if the number 
     that the user has entered does not match a randomly generated
@@ -41,7 +41,7 @@ def askquestion():
             if numinput == random_number:
                 print("Good job!")
                 break
-            else:                
+            else:
                 print()
                 print("Try agian")
                 count = count + 1
@@ -59,6 +59,7 @@ def askquestion():
 
 # Prints a nifty title screen
 
+
 print("---------------------------------------")
 print()
 print("      Welcome to the number game!      ")
@@ -68,14 +69,14 @@ print("---------------------------------------")
 
 # Asks the user for their name. (Name must contain letters)
 
-while True: 
+while True:
     name = input('Please input a username: ')
     if any(char.isalpha() for char in name) == False:
         print("Invalid name! please use letters.")
         print("")
     else:
         break
-    
+
 
 # Greets the user using their name and briefly explains the game
 
