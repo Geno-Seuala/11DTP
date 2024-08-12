@@ -63,7 +63,7 @@ def askquestion(question, rounds):
     while True:
         if roundcount < (rounds - 1):
             question
-            print("Good job! Time for round", roundcount + 2, "!")
+            print(f"Good job! Time for round {roundcount + 2}!")
             print()
             roundcount = roundcount + 1
         else:
