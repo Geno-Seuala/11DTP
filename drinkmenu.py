@@ -68,3 +68,7 @@ while True:
         print("--------------------------------------")
         print()
         input("press any key to close")
+    else:
+        print()
+        print("Only select 1 or 2")
+        print()
