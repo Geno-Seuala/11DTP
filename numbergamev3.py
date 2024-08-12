@@ -55,23 +55,6 @@ def gensub(range):
             print()
 
 
-def askquestion(question, rounds):
-    """ Takes a question and a number of rounds as arguments and
-    asks the question for that number of rounds. """
-
-    roundcount = 0
-    while True:
-        if roundcount < (rounds - 1):
-            question
-            print(f"Good job! Time for round {roundcount + 2}!")
-            print()
-            roundcount = roundcount + 1
-        else:
-            question
-            print()
-            break
-
-
 print("---------------------------------------")
 print()
 print("      Welcome to the number game!      ")
@@ -106,12 +89,25 @@ print("------------------------------------------------------")
 
 
 # Generates and asks 5 random addition problems with values 1 - 100
-askquestion(genadd(100), 5)
+roundcount = 0
+while roundcount < 4:
+    genadd(100)
+    print(f"Good job! Time for round {roundcount + 2}!")
+    print()
+    roundcount = roundcount + 1
+print()
 
-print("Now time for subtraction!")
+print("""Now time for subtraction!
+""")
 
 # Generates and asks 5 random subtraction problems with values 1 - 100
-askquestion(gensub(100), 5)
+roundcount = 0
+while roundcount < 4:
+    gensub(100)
+    print(f"Good job! Time for round {roundcount + 2}!")
+    print()
+    roundcount = roundcount + 1
+print()
 
 # Prints an end screen
 print("-------------------------------------------")
