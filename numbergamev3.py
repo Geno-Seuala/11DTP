@@ -1,19 +1,24 @@
 import random
 
+
 def intinput(message):
+    """ Prevents crashing when inputting invalid inputs (e.g. inputting
+    'esgh' as an answer to 5 + 13. """
     try:
         userinput = int(input(message))
     except ValueError:
         pass
     return userinput
-    
+
 
 def genadd(range):
+    """ Generates and asks a random addition problem with numbers from
+    1 - 100. """
     num1 = random.randint(1, range)
     num2 = random.randint(1, range)
 
     answer = num1+num2
-    
+
     while True:
         if intinput(f"What is {num1} + {num2}?: ") == answer:
             print()
@@ -23,8 +28,11 @@ def genadd(range):
             print()
             print("Whoops! Your answer is wrong, please try again.")
             print()
-        
+
+
 def gensub(range):
+    """ Generates and asks a random subtraction problem with two numbers
+    from 1 - 100 and ensures that the answer is a positive integer. """
 
     num1 = random.randint(1, range)
     num2 = random.randint(1, range)
@@ -33,9 +41,9 @@ def gensub(range):
         answer = num1-num2
         question = f"What is {num1} - {num2}?: "
     elif num1 < num2:
-        answer = num2-num1 
+        answer = num2-num1
         question = f"What is {num2} - {num1}?: "
-    
+
     while True:
         if intinput(question) == answer:
             print()
@@ -47,6 +55,23 @@ def gensub(range):
             print()
 
 
+def askquestion(question, rounds):
+    """ Takes a question and a number of rounds as arguments and
+    asks the question for that number of rounds. """
+
+    roundcount = 0
+    while True:
+        if roundcount < (rounds - 1):
+            question
+            print("Good job! Time for round", roundcount + 2, "!")
+            print()
+            roundcount = roundcount + 1
+        else:
+            question
+            print()
+            break
+
+
 print("---------------------------------------")
 print()
 print("      Welcome to the number game!      ")
@@ -54,7 +79,8 @@ print("           What is your name?          ")
 print()
 print("---------------------------------------")
 
-while True: 
+# Asks the user for their name and ensures that it only contains letters
+while True:
     name = input('Please input a username: ')
     if any(char.isalpha() for char in name) == False:
         print("Invalid name! please use letters.")
@@ -62,6 +88,7 @@ while True:
     else:
         break
 
+# Greets the user and briefly explains the rules of the game
 print("------------------------------------------------------")
 print()
 print("   Hello!", name, "! and welcome to the number game!  ")
@@ -78,32 +105,15 @@ print()
 print("------------------------------------------------------")
 
 
-roundcount = 0
-while True:
-    if roundcount < 4:
-        genadd(100)
-        print("Good job! Time for round", roundcount + 2, "!")
-        print()
-        roundcount = roundcount + 1
-    else:
-        genadd(100)
-        break
+# Generates and asks 5 random addition problems with values 1 - 100
+askquestion(genadd(100), 5)
 
-print()
 print("Now time for subtraction!")
-print()
 
-roundcount = 0
-while True:
-    if roundcount < 4:
-        gensub(100)
-        print("Good job! Time for round", roundcount + 2, "!")
-        print()
-        roundcount = roundcount + 1
-    else:
-        gensub(100)
-        break
+# Generates and asks 5 random subtraction problems with values 1 - 100
+askquestion(gensub(100), 5)
 
+# Prints an end screen
 print("-------------------------------------------")
 print()
 print("Congrats! You have beaten the numbers game.")
