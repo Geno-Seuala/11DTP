@@ -3,7 +3,7 @@ import random
 
 def intinput(message):
     """ Prevents crashing when inputting invalid inputs (e.g. inputting
-    'esgh' as an answer to 5 + 13. If the users input is invalid, 
+    'abc' as an answer to 5 + 13. If the users input is invalid, 
     the program shows an error message and asks for another input 
 
     Arguments: message (the message to prompt the user to input a
