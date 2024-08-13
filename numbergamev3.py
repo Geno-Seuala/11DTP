@@ -5,10 +5,10 @@ def intinput(message):
     """ Prevents crashing when inputting invalid inputs (e.g. inputting
     'esgh' as an answer to 5 + 13. If the users input is invalid, 
     the program shows an error message and asks for another input 
-    
+
     Arguments: message (the message to prompt the user to input a
     number
-    
+
     Returns: an integer inputted by the user) """
     while True:
         try:
@@ -23,9 +23,9 @@ def intinput(message):
 
 def genadd(range):
     """ Generates and asks a random addition problem.
-    
+
     Arguments: range (how big a number in the problem can be)
-    
+
     Returns: a random addition problem
     """
 
@@ -51,9 +51,9 @@ def genadd(range):
 def gensub(range):
     """ Generates and asks a random subtraction problem with two numbers
     and ensures that the answer is a positive integer. 
-    
+
     Arguments: range (how big a number in the problem can be)
-    
+
     Returns: a random subtraction problem with a positive integer as the
     answer
     """
@@ -82,6 +82,7 @@ def gensub(range):
             print("Whoops! Your answer is wrong, please try again.")
             print()
 
+
 # Prints a title screen to welcome the user and indicate that the
 # Program has started and is running okay
 print("---------------------------------------")
@@ -102,7 +103,7 @@ while True:
     else:
         break
 
-# Greets the user by game and briefly explains the rules of the game so 
+# Greets the user by game and briefly explains the rules of the game so
 # That the user know how to play and understands the game
 print("------------------------------------------------------")
 print()
