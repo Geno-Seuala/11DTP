@@ -13,16 +13,20 @@ def card_deck():
     deck = []
     for suit in suits:
         for value in values:
-            deck.append(f"{value} of {suit})
+            deck.append(value, + "of", + suit)
     return deck
+
+deck = card_deck()
 
 def dealerdraw():
     dealercards = []
     for num in range(2):
-        card = (random.choice(cards))
+        card = (random.choice(deck))
         dealercards.append(card)
-        cards.remove(card)
-    return dealercards, cards
+        deck.remove(card)
+    return dealercards
+
+print(dealerdraw())
         
 
         
