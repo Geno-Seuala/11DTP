@@ -15,3 +15,14 @@ def card_deck():
         for value in values:
             deck.append(f"{value} of {suit})
     return deck
+
+def dealerdraw():
+    dealercards = []
+    for num in range(2):
+        card = (random.choice(cards))
+        dealercards.append(card)
+        cards.remove(card)
+    return dealercards, cards
+        
+
+        
