@@ -16,7 +16,7 @@ def intinput(message):
             break
         except ValueError:
             print()
-            print("Please only input numbers")
+            print("Please only input whole numbers")
             print()
     return userinput
 
@@ -106,7 +106,7 @@ while True:
 # That the user know how to play and understands the game
 print("------------------------------------------------------")
 print()
-print("   Hello!", name, "! and welcome to the number game!  ")
+print(f"    Hello! {name}! and welcome to the number game!   ")
 print()
 print("   you will solve addition and subtraction problems,  ")
 print()
