@@ -24,7 +24,7 @@ while True:
     print("press 2 to send order")
     selection = input()
     if selection == "1":
-        print("Fantastic", name, "! these are the drinks we offer:")
+        print(f"Fantastic {name}! these are the drinks we offer:")
         print(drinks)
         while True:
             drink = input("Please select a drink: ")

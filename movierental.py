@@ -7,7 +7,9 @@ returned = []
 
 
 def menu():
-    """Prints a menu for the user to choose an operation
+    """
+    Prints a menu for the user to choose an operation
+    Returns: select = integer
     """
     while True:
         try:
@@ -28,7 +30,9 @@ def menu():
 
 
 def add():
-    """Adds a movie to the stores stock
+    """
+    Adds a movie to the stores stock
+    Returns: Change of list - movies
     """
     print("Add was selected")
     print("These are the movies we currently have:", movies)
@@ -40,7 +44,9 @@ def add():
 
 
 def search():
-    """Allows the user to search within the stores stock for a movie
+    """
+    Allows the user to search within the stores stock for a movie
+    returns: info on movie (whether it is offered by us)
     """
     print("Search was selected")
     movie = input("""
@@ -56,8 +62,10 @@ def search():
 
 
 def rent():
-    """Removes a movie from the stores stock and adds it into
+    """
+    Removes a movie from the stores stock and adds it into
     the users cart
+    Returns: Removes movie from list - movies
     """
     print("Rent was selected")
     print("Here are the movies we have:", movies)
@@ -74,8 +82,10 @@ def rent():
 
 
 def return_movie():
-    """Removes a movie from the users cart and adds it into
+    """
+    Removes a movie from the users cart and adds it into
     the stores stock
+    Returns: updated list - movies
     """
     print("Return Movie was selected")
     movie = input("""
@@ -89,8 +99,11 @@ def return_movie():
 
 
 def report():
-    """Print the users cart, the stores stock, and the movies that
+    """
+    Gives the user a full, in depth rental report
+    Returns: the users cart, the stores stock, and the movies that
     the user had taken out and returned to the store
+    
     """
     print("Report was selected")
     print("Returned movies:", returned)
@@ -99,11 +112,16 @@ def report():
 
 
 def main():
-    """Calls any of the operations depending on what the user
+    """
+    Calls any of the operations depending on what the user
     selects in menu()
+    returns: selected = menu()
     """
     while True:
-        selected = menu()
+        try:
+            selected = menu()
+        except ValueError:
+            print("Please only enter whole numbers")
         if selected == 1:
             add()
         elif selected == 2:
