@@ -5,7 +5,7 @@ balance = 0.00
 def checkbal():
     print(
 f"""
-Your current balance is {balance}!
+Your balance is ${balance}!
 """ 
     )
 
@@ -15,7 +15,7 @@ def withdraw():
             amount = int(input(
 f"""
 --------------------------------
-Current Balance: {balance}
+Current Balance: ${balance}
 --------------------------------
 How much money would you like to
 withdraw?
@@ -29,8 +29,23 @@ withdraw?
 """))
     
         except ValueError:
-            print("Please enter a number from 1 to 6")
+            print("Please enter a number from 1 to 6.")
         break
+    
+    if amount == 1:
+        balance = balance - 5
+    elif amount == 2:
+        balance = balance - 10
+    elif amount == 3:
+        balance = balance - 20
+    elif amount == 4:
+        balance = balance - 50
+    elif amount == 5:
+        balance = balance - 100
+    elif amount == 6:
+        pass
+    else:
+        print("Please enter a number from 1 to 6.")
     
 
 def menu():
@@ -51,7 +66,7 @@ Please select an option below:
 """
             ))
         except ValueError:
-            print("Please enter a number from 1 to 5")
+            print("Please enter a number from 1 to 5.")
         if selection == 1:
             checkbal()
         elif selection == 2:
@@ -62,5 +77,7 @@ Please select an option below:
             tranhist()
         elif selection == 5:
             break
+        else:
+            print("Please enter a number from 1 to 5.")
         
 menu()
