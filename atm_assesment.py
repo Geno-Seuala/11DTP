@@ -263,7 +263,7 @@ Please select an option below:
             elif selection == 3:
                 deposit()
             # If 4 is selected, the transactionhist() function is called to
-            # Itterate over all of the transactions that the user has made
+            # Itterate over all of the transactions that the user has made.
             elif selection == 4:
                 transactionhist()
             # If 5 is selected, the user is printed a parting message with a
