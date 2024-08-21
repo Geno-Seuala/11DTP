@@ -15,21 +15,22 @@ def withdraw():
             amount = int(input(
 f"""
 --------------------------------
-Current Balance: ${balance}
+Current Balance: ${balance}.
 --------------------------------
 How much money would you like to
-withdraw?
+withdraw?                       
 
-1: $5.00               4: $50.00
+ 1: $5.00             4: $50.00
 
-2: $10.00             5: $100.00
+ 2: $10.00           5: $100.00
 
-3: $20.00              6: Custom
+ 3: $20.00            6: Custom
+--------------------------------
 
 """))
     
         except ValueError:
-            print("Please enter a number from 1 to 6.")
+            input("Please enter a number from 1 to 6. Press enter to retry.")
         break
     
     if amount == 1 and balance >= 5:
@@ -43,30 +44,76 @@ withdraw?
     elif amount == 5 and balance >= 100:
         balance = balance - 100
     elif amount == 6:
-        customamount = 
+        while True:
+            try:
+                customamount = float(input("Enter amount: "))
+                break
+            except ValueError:
+                print("Please enter a number.")
+        balance = balance - customamount
     else:
-        print("Please enter a number from 1 to 6.")
-    
+        input("Please enter a number from 1 to 6. Press enter to retry.")
 
-def menu():
+def deposit():
     while True:
         try:
             selection = int(input(
 """
 --------------------------------
+Current Balance: ${balance[:2]}
+--------------------------------
+Which note(s) would you like to
+deposit?                       
+
+ 1: $5.00             4: $50.00
+
+ 2: $10.00           5: $100.00
+
+ 3: $20.00              6: Exit
+--------------------------------
+
+"""
+    ))
+                
+        except ValueError:
+            input("Please enter a number from 1 to 6. Press enter to retry.")
+            if select == 1:
+                balance = balance + 5
+            elif select == 2:
+                balance = balance + 10
+            elif select == 3:
+                balance = balance + 20
+            elif select == 4:
+                balance = balance + 50
+            elif select == 5:
+                balance = balance + 100
+            elif select == 6:
+                break
+            else:
+                input("Please enter a number from 1 to 6. Press enter to retry.")
+    
+        
+            
+
+def menu():
+    while True:
+        try:
+            selection = int(input(
+"""--------------------------------
 Welcome to Westlake's GBNZ ATM! 
 Please select an option below:
 --------------------------------
-1: Check Balance
-2: Withdraw Funds
-3: Deposit Funds
-4: Print Transaction History
-5: Exit
+ 1: Check Balance
+ 2: Withdraw Funds
+ 3: Deposit Funds
+ 4: Print Transaction History
+ 5: Exit
 --------------------------------
 """
             ))
+            
         except ValueError:
-            print("Please enter a number from 1 to 5.")
+            input("Please enter a number from 1 to 5. Press enter to retry.")
         if selection == 1:
             checkbal()
         elif selection == 2:
@@ -78,6 +125,6 @@ Please select an option below:
         elif selection == 5:
             break
         else:
-            print("Please enter a number from 1 to 5.")
+            input("Please enter a number from 1 to 5. Press enter to retry.")
         
 menu()
