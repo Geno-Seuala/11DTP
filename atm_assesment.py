@@ -18,7 +18,7 @@ def removebalance(amount):
         balance -= amount
         now = datetime.now()
         dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
-        transaction = ("Withdrawl - " + "$" + str((amount)) + ' | ' + str(dateandtime))
+        transaction = ("Withdrawl - " + "$" + f"{amount:.2f}" + ' | ' + str(dateandtime))
         transactionhistory.append(transaction)
         input(
 f"""
@@ -99,7 +99,7 @@ Press enter to continue.
 """)
     now = datetime.now()
     dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
-    transaction = ("Deposit - " + "$" + str(amount) + ' | ' + str(dateandtime))
+    transaction = ("Deposit - " + "$" + f"{amount:.2f}" + ' | ' + str(dateandtime))
     transactionhistory.append(transaction)
 
 def deposit():
