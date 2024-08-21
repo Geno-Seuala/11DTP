@@ -3,19 +3,34 @@ import datetime
 balance = 0.00
 
 def checkbal():
-    print(
-f"""
-Your balance is ${balance}!
-""" 
+    input(
+f"""\n--------------------------------
+Your balance is ${balance:.2f}!
+Press enter to continue.
+--------------------------------
+"""
     )
 
+def ent2continue(message):
+    input()
+
+def removebalance(amount):
+    global balance
+    if balance >= amount:
+        balance = balance - amount
+    else:
+        input(
+f"""Insufficient funds. You're ${(amount - balance):.2f} short!
+Press enter to continue.""")
+
 def withdraw():
+    global balance
     while True:
         try:
             amount = int(input(
 f"""
 --------------------------------
-Current Balance: ${balance}.
+Current Balance: ${balance:.2f}.
 --------------------------------
 How much money would you like to
 withdraw?                       
@@ -26,33 +41,55 @@ withdraw?
 
  3: $20.00            6: Custom
 --------------------------------
-
 """))
     
         except ValueError:
             input("Please enter a number from 1 to 6. Press enter to retry.")
         break
-    
-    if amount == 1 and balance >= 5:
-        balance = balance - 5
-    elif amount == 2 and balance >= 10:
-        balance = balance - 10
-    elif amount == 3 and balance >= 20:
-        balance = balance - 20
-    elif amount == 4 and balance >= 50:
-        balance = balance - 50
-    elif amount == 5 and balance >= 100:
-        balance = balance - 100
+        
+    if amount == 1:
+        removebalance(5)
+    elif amount == 2:
+        removebalance(10)
+    elif amount == 3:
+        removebalance(20)
+    elif amount == 4:
+        removebalance(50)
+    elif amount == 5:
+        removebalance(100)
     elif amount == 6:
         while True:
             try:
                 customamount = float(input("Enter amount: "))
-                break
             except ValueError:
                 print("Please enter a number.")
-        balance = balance - customamount
+            if customamount > balance:
+                nobalance = input(
+f"""
+Insufficient funds. You're ${(customamount - balance):.2f} short!
+Press enter to retry or press 1 to exit.
+
+""")
+                if nobalance == '1':
+                    break
+            else:
+                balance -= customamount
+                input(
+f"""
+{customamount:.2f} Withdrawn. Your new balance is: ${balance}.
+"""
+                )
     else:
-        input("Please enter a number from 1 to 6. Press enter to retry.")
+        input("Please enter a number from 1 to 6.  Press enter to retry.")
+
+
+def addbalance(amount):
+    balance += amount
+    input(
+f"""
+${amount:.2f} has been deposited.
+Your new balance is ${balance:.2f}
+""")
 
 def deposit():
     while True:
@@ -71,22 +108,20 @@ deposit?
 
  3: $20.00              6: Exit
 --------------------------------
-
-"""
-    ))
+"""))
                 
         except ValueError:
             input("Please enter a number from 1 to 6. Press enter to retry.")
             if select == 1:
-                balance = balance + 5
+                addbalance(5)
             elif select == 2:
-                balance = balance + 10
+                addbalance(10)
             elif select == 3:
-                balance = balance + 20
+                addbalance(20)
             elif select == 4:
-                balance = balance + 50
+                addbalance(50)
             elif select == 5:
-                balance = balance + 100
+                addbalance(100)
             elif select == 6:
                 break
             else:
@@ -99,7 +134,7 @@ def menu():
     while True:
         try:
             selection = int(input(
-"""--------------------------------
+"""\n--------------------------------
 Welcome to Westlake's GBNZ ATM! 
 Please select an option below:
 --------------------------------
@@ -121,7 +156,7 @@ Please select an option below:
         elif selection == 3:
             deposit()
         elif selection == 4:
-            tranhist()
+            transachist()
         elif selection == 5:
             break
         else:
