@@ -4,13 +4,29 @@ balance = 0.00
 
 transactionhistory = []
 
-def pinwall():
-    pin = 3104
-    attempt = input
+def pinwall(code):
+    pin = int(code)
+    attemptcount = 0
+    
+    while True:
+        try:
+            attempt = int(input("Please enter your pin: "))
+            if attempt == pin:
+                grantaccess = True
+                break
+            else:
+                attemptcount += 1
+                print(
+f"""Incorrect pin.
+You have {3 - attemptcount} attempts left""")
+        except ValueError:
+            input(
+"""Please enter a 4 digit numerical code.
+Press enter to retry.""")
 def checkbal():
     
     input(
-        f"""\n--------------------------------
+f"""\n--------------------------------
 Your balance is ${balance:.2f}!
 Press enter to continue.
 --------------------------------
@@ -28,7 +44,7 @@ def removebalance(amount):
                        f"{amount:.2f}" + ' | ' + str(dateandtime))
         transactionhistory.append(transaction)
         input(
-            f"""
+f"""
 {amount:.2f} has been withdrawn.
 Your new balance is: ${balance:.2f}
 Press enter to continue.
@@ -37,7 +53,7 @@ Press enter to continue.
 
     else:
         input(
-            f"""Insufficient funds. You're ${(amount - balance):.2f} short!
+f"""Insufficient funds. You're ${(amount - balance):.2f} short!
 Press enter to continue.""")
 
 
@@ -46,7 +62,7 @@ def withdraw():
     while True:
         try:
             amount = int(input(
-                f"""
+f"""
 --------------------------------
 Current Balance: ${balance:.2f}.
 --------------------------------
@@ -80,7 +96,7 @@ withdraw?
                 print("Please enter a number.")
             if customamount > balance:
                 nobalance = input(
-                    f"""
+f"""
 Insufficient funds. You're ${(customamount - balance):.2f} short!
 Press enter to retry or press 1 to exit.
 
@@ -100,7 +116,7 @@ def addbalance(amount):
     global balance
     balance += amount
     input(
-        f"""
+f"""
 ${amount:.2f} has been deposited.
 Your new balance is ${balance:.2f}
 Press enter to continue.
@@ -116,7 +132,7 @@ def deposit():
     global balance
     try:
         select = int(input(
-            f"""
+f"""
 --------------------------------
 Current Balance: ${balance:.2f}
 --------------------------------
@@ -152,7 +168,7 @@ deposit?
 def transactionhist():
     if len(transactionhistory) >= 1:
         print(
-            """\n----------------------------------------
+"""\n----------------------------------------
              Transactions:              """)
         for transaction in transactionhistory:
             print(f"[{transaction}]")
@@ -164,17 +180,18 @@ Press enter to go back.
         )
     else:
         input(
-            """
+"""
 You have no transactions to show.
 Press enter to go back.       
 """)
 
 
 def menu():
+    pinwall(3104)
     while True:
         try:
             selection = int(input(
-                """\n--------------------------------
+"""\n--------------------------------
 Welcome to Westlake's GBNZ ATM! 
 Please select an option below:
 --------------------------------
