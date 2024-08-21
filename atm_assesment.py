@@ -1,8 +1,8 @@
-import datetime
+from datetime import datetime
 
 balance = 0.00
 
-transhistory = []
+transactionhistory = []
 
 def checkbal():
     input(
@@ -12,23 +12,25 @@ Press enter to continue.
 --------------------------------
 """
     )
-
 def removebalance(amount):
     global balance
     if balance >= amount:
-        balance = balance - amount
+        balance -= amount
+        now = datetime.now()
+        dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
+        transaction = ("Withdrawl - " + "$" + str((amount)) + ' | ' + str(dateandtime))
+        transactionhistory.append(transaction)
         input(
 f"""
 {amount:.2f} has been withdrawn.
 Your new balance is: ${balance:.2f}
-Press enter to continue.
-"""
+Press enter to continue. """
         )
+
     else:
         input(
 f"""Insufficient funds. You're ${(amount - balance):.2f} short!
 Press enter to continue.""")
-    return balance
 
 def withdraw():
     global balance
@@ -62,8 +64,6 @@ withdraw?
     elif amount == 4:
         removebalance(50)
     elif amount == 5:
-        removebalance(100)
-    elif amount == 6:
         while True:
             try:
                 customamount = float(input("Enter amount: "))
@@ -79,12 +79,10 @@ Press enter to retry or press 1 to exit.
                 if nobalance == '1':
                     break
             else:
-                balance -= customamount
-                input(
-f"""
-{customamount:.2f} Withdrawn. Your new balance is: ${balance}.
-"""
-                )
+                removebalance(customamount)
+                break
+    elif amount == 6:
+        pass
     else:
         input("Please enter a number from 1 to 6.  Press enter to retry.")
 
@@ -98,6 +96,10 @@ ${amount:.2f} has been deposited.
 Your new balance is ${balance:.2f}
 Press enter to continue.
 """)
+    now = datetime.now()
+    dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
+    transaction = ("Deposit - " + "$" + str(amount) + ' | ' + str(dateandtime))
+    transactionhistory.append(transaction)
 
 def deposit():
     global balance
@@ -138,6 +140,26 @@ deposit?
         
         
 
+def transactionhist():
+    if len(transactionhistory) >= 1:
+        print(
+"""----------------------------------------
+             Transactions:              """)
+        for transaction in transactionhistory:
+            print(f"[{transaction}]")
+        input(
+"""
+----------------------------------------
+Press enter to go back.
+"""
+            )
+    else:
+        input(
+"""
+You have no transactions to show.
+Press enter to go back.       
+""")
+    
 def menu():
     while True:
         try:
@@ -164,8 +186,9 @@ Please select an option below:
         elif selection == 3:
             deposit()
         elif selection == 4:
-            transachist()
+            transactionhist()
         elif selection == 5:
+            print(f"See you soon! Your balance is ${balance:.2f}")
             break
         else:
             input("Please enter a number from 1 to 5. Press enter to retry.")
