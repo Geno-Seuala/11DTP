@@ -5,15 +5,36 @@ balance = 0.00
 transactionhistory = []
 
 def pinwall(code):
+    """Prompts the user to enter a pin. If the users input matches the code
+    set in the fuctions argument then True is returned, if the user guesses
+    incorrectly, they are given two more chances before "access denied" is
+    printed and false is returned from the function. This is to verify the
+    user and make sure that the right person is accessing the funds of the
+    users account.
+
+    Args:
+        Int (code): A code for the user to guess.
+
+    Returns:
+        Bool (grantaccess): Whether or not the user has guessed the code in
+        three attempts.
+    
+    """
     pin = int(code)
     attemptcount = 0
     
-    while True:
+    # Loop that runs three times or untill the user guesses the pin correctly.
+    while attemptcount < 3:
         try:
+            # Prompts the user to enter a pin
             attempt = int(input("Please enter your pin: "))
+            # Returns True if the users guess is correct.
             if attempt == pin:
                 grantaccess = True
                 break
+            # Lets the loop know that the user has made an incorrect guess and
+            # Lets the user know how many attempts remain and prompts them to
+            # Try again.
             else:
                 attemptcount += 1
                 print(
@@ -23,6 +44,13 @@ You have {3 - attemptcount} attempts left""")
             input(
 """Please enter a 4 digit numerical code.
 Press enter to retry.""")
+    # If the user has guesses the pin incorrectly thee times then False is
+    # Returned and "Access denied" is printed.
+    if attemptcount == 3:
+        grantaccess = False
+        print("Access denied.")
+    return grantaccess
+    
 def checkbal():
     
     input(
@@ -187,10 +215,10 @@ Press enter to go back.
 
 
 def menu():
-    pinwall(3104)
-    while True:
-        try:
-            selection = int(input(
+    if pinwall(3104) == True:
+        while True:
+            try:
+                selection = int(input(
 """\n--------------------------------
 Welcome to Westlake's GBNZ ATM! 
 Please select an option below:
@@ -202,23 +230,23 @@ Please select an option below:
  5: Exit
 --------------------------------
 """
-            ))
+                ))
 
-        except ValueError:
-            input("Please enter a number from 1 to 5. Press enter to retry.")
-        if selection == 1:
-            checkbal()
-        elif selection == 2:
-            withdraw()
-        elif selection == 3:
-            deposit()
-        elif selection == 4:
-            transactionhist()
-        elif selection == 5:
-            print(f"See you soon! Your balance is ${balance:.2f}")
-            break
-        else:
-            input("Please enter a number from 1 to 5. Press enter to retry.")
+            except ValueError:
+                input("Please enter a number from 1 to 5. Press enter to retry.")
+            if selection == 1:
+                checkbal()
+            elif selection == 2:
+                withdraw()
+            elif selection == 3:
+                deposit()
+            elif selection == 4:
+                transactionhist()
+            elif selection == 5:
+                print(f"See you soon! Your balance is ${balance:.2f}")
+                break
+            else:
+                input("Please enter a number from 1 to 5. Press enter to retry.")
 
 
 menu()
