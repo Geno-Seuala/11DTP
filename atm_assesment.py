@@ -50,7 +50,7 @@ Press enter to retry.""")
         grantaccess = False
         print("Access denied.")
     return grantaccess
-    
+
 def checkbal():
     
     input(
@@ -215,9 +215,23 @@ Press enter to go back.
 
 
 def menu():
+    """A menu that runs once the user has entered the correct pin, here the
+    user can select which of the five presented operations they would like the
+    ATM to perform (Check balance, Withdraw Funds, Deposit Funds, Print
+    Transaction History, Exit). Once the user selects one, the operation takes
+    place and the function loops back so that the user can choose another
+    option and continue using the ATM.
+    
+    """
+    # Asks the user to enter their pin (3104) in order to verify that the right
+    # Person is accessing the funds in the account. 
     if pinwall(3104) == True:
+        # A while loop so that the user can perform multiple operations and try
+        # Again if an error occurs without the need to restart the program.
         while True:
             try:
+                # Prints a nifty menu screen letting the user know which inputs
+                # Correspond to which operations.
                 selection = int(input(
 """\n--------------------------------
 Welcome to Westlake's GBNZ ATM! 
@@ -231,20 +245,36 @@ Please select an option below:
 --------------------------------
 """
                 ))
-
+            # Handles non-integer inputs and prompts the user to only enter
+            # Numbers from one to five. This is an input statement in order to
+            # Give the user time to read and learn how to use the program.
             except ValueError:
                 input("Please enter a number from 1 to 5. Press enter to retry.")
+            # If 1 is selected, the checkbal() function is run to check the
+            # Users account's balance.
             if selection == 1:
                 checkbal()
+            # If 2 is selected, the withdraw() function is run to remove funds
+            # From the users account.
             elif selection == 2:
                 withdraw()
+            # If 3 is selected, the deposit() function is run to add funds to
+            # The users acocunt.
             elif selection == 3:
                 deposit()
+            # If 4 is selected, the transactionhist() function is run to
+            # Itterate over all of the transactions that the user has made
             elif selection == 4:
                 transactionhist()
+            # If 5 is selected, the user is printed a parting message with a
+            # Display of their remaining balance rounded to two d.p and the
+            # Program exits.
             elif selection == 5:
                 print(f"See you soon! Your balance is ${balance:.2f}")
                 break
+            # If a number that isn't in range 1 to 5 then the user is asked to
+            # Only enter valid inputs and is prompted to press enter in order
+            # To retry so that the user can correctly use the ATM's menu.
             else:
                 input("Please enter a number from 1 to 5. Press enter to retry.")
 
