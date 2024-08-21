@@ -32,18 +32,18 @@ withdraw?
             print("Please enter a number from 1 to 6.")
         break
     
-    if amount == 1:
+    if amount == 1 and balance >= 5:
         balance = balance - 5
-    elif amount == 2:
+    elif amount == 2 and balance >= 10:
         balance = balance - 10
-    elif amount == 3:
+    elif amount == 3 and balance >= 20:
         balance = balance - 20
-    elif amount == 4:
+    elif amount == 4 and balance >= 50:
         balance = balance - 50
-    elif amount == 5:
+    elif amount == 5 and balance >= 100:
         balance = balance - 100
     elif amount == 6:
-        pass
+        customamount = 
     else:
         print("Please enter a number from 1 to 6.")
     
