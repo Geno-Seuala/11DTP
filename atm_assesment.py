@@ -52,7 +52,15 @@ Press enter to retry.""")
     return grantaccess
 
 def checkbal():
+    """Prints the balance of the user's account so that the user can be aware
+    of how much funds are in the account if they wish to deposit or withdraw
+    any money.
     
+    """
+    # An input prompting the user to press enter once they have finished
+    # Reading their balance so that the user isnt bombarded by a large menu
+    # Screen when trying to read their balance meaning that the user has an
+    # Easier time using the ATM.
     input(
 f"""\n--------------------------------
 Your balance is ${balance:.2f}!
