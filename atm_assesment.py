@@ -24,7 +24,8 @@ def removebalance(amount):
 f"""
 {amount:.2f} has been withdrawn.
 Your new balance is: ${balance:.2f}
-Press enter to continue. """
+Press enter to continue.
+"""
         )
 
     else:
@@ -84,7 +85,7 @@ Press enter to retry or press 1 to exit.
     elif amount == 6:
         pass
     else:
-        input("Please enter a number from 1 to 6.  Press enter to retry.")
+        input("Please enter a $ amount. Press enter to retry.")
 
 
 def addbalance(amount):
