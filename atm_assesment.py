@@ -4,24 +4,31 @@ balance = 0.00
 
 transactionhistory = []
 
+def pinwall():
+    pin = 3104
+    attempt = input
 def checkbal():
+    
     input(
-f"""\n--------------------------------
+        f"""\n--------------------------------
 Your balance is ${balance:.2f}!
 Press enter to continue.
 --------------------------------
 """
     )
+
+
 def removebalance(amount):
     global balance
     if balance >= amount:
         balance -= amount
         now = datetime.now()
         dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
-        transaction = ("Withdrawl - " + "$" + f"{amount:.2f}" + ' | ' + str(dateandtime))
+        transaction = ("Withdrawl - " + "$" +
+                       f"{amount:.2f}" + ' | ' + str(dateandtime))
         transactionhistory.append(transaction)
         input(
-f"""
+            f"""
 {amount:.2f} has been withdrawn.
 Your new balance is: ${balance:.2f}
 Press enter to continue.
@@ -30,20 +37,21 @@ Press enter to continue.
 
     else:
         input(
-f"""Insufficient funds. You're ${(amount - balance):.2f} short!
+            f"""Insufficient funds. You're ${(amount - balance):.2f} short!
 Press enter to continue.""")
+
 
 def withdraw():
     global balance
     while True:
         try:
             amount = int(input(
-f"""
+                f"""
 --------------------------------
 Current Balance: ${balance:.2f}.
 --------------------------------
 How much money would you like to
-withdraw?                       
+withdraw?
 
  1: $5.00             4: $50.00
 
@@ -55,7 +63,7 @@ withdraw?
             break
         except ValueError:
             input("Please enter a number from 1 to 6. Press enter to retry.")
-        
+
     if amount == 1:
         removebalance(5)
     elif amount == 2:
@@ -72,7 +80,7 @@ withdraw?
                 print("Please enter a number.")
             if customamount > balance:
                 nobalance = input(
-f"""
+                    f"""
 Insufficient funds. You're ${(customamount - balance):.2f} short!
 Press enter to retry or press 1 to exit.
 
@@ -92,26 +100,28 @@ def addbalance(amount):
     global balance
     balance += amount
     input(
-f"""
+        f"""
 ${amount:.2f} has been deposited.
 Your new balance is ${balance:.2f}
 Press enter to continue.
 """)
     now = datetime.now()
     dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
-    transaction = ("Deposit - " + "$" + f"{amount:.2f}" + ' | ' + str(dateandtime))
+    transaction = ("Deposit - " + "$" +
+                   f"{amount:.2f}" + ' | ' + str(dateandtime))
     transactionhistory.append(transaction)
+
 
 def deposit():
     global balance
     try:
         select = int(input(
-f"""
+            f"""
 --------------------------------
 Current Balance: ${balance:.2f}
 --------------------------------
 Which note would you like to
-deposit?                       
+deposit?
 
  1: $5.00             4: $50.00
 
@@ -120,7 +130,7 @@ deposit?
  3: $20.00              6: Back
 --------------------------------
 """))
-                
+
     except ValueError:
         input("Please enter a number from 1 to 6. Press enter to retry.")
     if select == 1:
@@ -137,35 +147,34 @@ deposit?
         pass
     else:
         input("Please enter a number from 1 to 6. Press enter to retry.")
-        
-        
-        
+
 
 def transactionhist():
     if len(transactionhistory) >= 1:
         print(
-"""\n----------------------------------------
+            """\n----------------------------------------
              Transactions:              """)
         for transaction in transactionhistory:
             print(f"[{transaction}]")
         input(
-"""
+            """
 ----------------------------------------
 Press enter to go back.
 """
-            )
+        )
     else:
         input(
-"""
+            """
 You have no transactions to show.
 Press enter to go back.       
 """)
-    
+
+
 def menu():
     while True:
         try:
             selection = int(input(
-"""\n--------------------------------
+                """\n--------------------------------
 Welcome to Westlake's GBNZ ATM! 
 Please select an option below:
 --------------------------------
@@ -177,7 +186,7 @@ Please select an option below:
 --------------------------------
 """
             ))
-            
+
         except ValueError:
             input("Please enter a number from 1 to 5. Press enter to retry.")
         if selection == 1:
@@ -193,5 +202,6 @@ Please select an option below:
             break
         else:
             input("Please enter a number from 1 to 5. Press enter to retry.")
-        
+
+
 menu()
