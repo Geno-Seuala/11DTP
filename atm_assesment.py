@@ -250,19 +250,19 @@ Please select an option below:
             # Give the user time to read and learn how to use the program.
             except ValueError:
                 input("Please enter a number from 1 to 5. Press enter to retry.")
-            # If 1 is selected, the checkbal() function is run to check the
+            # If 1 is selected, the checkbal() function is called to check the
             # Users account's balance.
             if selection == 1:
                 checkbal()
-            # If 2 is selected, the withdraw() function is run to remove funds
-            # From the users account.
+            # If 2 is selected, the withdraw() function is called to remove 
+            # Funds From the users account.
             elif selection == 2:
                 withdraw()
-            # If 3 is selected, the deposit() function is run to add funds to
-            # The users acocunt.
+            # If 3 is selected, the deposit() function is called to add funds 
+            # To the users acocunt.
             elif selection == 3:
                 deposit()
-            # If 4 is selected, the transactionhist() function is run to
+            # If 4 is selected, the transactionhist() function is called to
             # Itterate over all of the transactions that the user has made
             elif selection == 4:
                 transactionhist()
@@ -272,9 +272,10 @@ Please select an option below:
             elif selection == 5:
                 print(f"See you soon! Your balance is ${balance:.2f}")
                 break
-            # If a number that isn't in range 1 to 5 then the user is asked to
-            # Only enter valid inputs and is prompted to press enter in order
-            # To retry so that the user can correctly use the ATM's menu.
+            # If an integer that isn't in range 1 to 5 is inputted,
+            # Then the user is asked to Only enter valid inputs and is prompted
+            # to press enter in order To retry so that the user can correctly 
+            # Use the ATM's menu.
             else:
                 input("Please enter a number from 1 to 5. Press enter to retry.")
 
