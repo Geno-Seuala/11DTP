@@ -2,6 +2,8 @@ import datetime
 
 balance = 0.00
 
+transhistory = []
+
 def checkbal():
     input(
 f"""\n--------------------------------
@@ -11,17 +13,22 @@ Press enter to continue.
 """
     )
 
-def ent2continue(message):
-    input()
-
 def removebalance(amount):
     global balance
     if balance >= amount:
         balance = balance - amount
+        input(
+f"""
+{amount:.2f} has been withdrawn.
+Your new balance is: ${balance:.2f}
+Press enter to continue.
+"""
+        )
     else:
         input(
 f"""Insufficient funds. You're ${(amount - balance):.2f} short!
 Press enter to continue.""")
+    return balance
 
 def withdraw():
     global balance
@@ -37,15 +44,14 @@ withdraw?
 
  1: $5.00             4: $50.00
 
- 2: $10.00           5: $100.00
+ 2: $10.00            5: Custom
 
- 3: $20.00            6: Custom
+ 3: $20.00              6: Back
 --------------------------------
 """))
-    
+            break
         except ValueError:
             input("Please enter a number from 1 to 6. Press enter to retry.")
-        break
         
     if amount == 1:
         removebalance(5)
@@ -84,51 +90,53 @@ f"""
 
 
 def addbalance(amount):
+    global balance
     balance += amount
     input(
 f"""
 ${amount:.2f} has been deposited.
 Your new balance is ${balance:.2f}
+Press enter to continue.
 """)
 
 def deposit():
-    while True:
-        try:
-            selection = int(input(
-"""
+    global balance
+    try:
+        select = int(input(
+f"""
 --------------------------------
-Current Balance: ${balance[:2]}
+Current Balance: ${balance:.2f}
 --------------------------------
-Which note(s) would you like to
+Which note would you like to
 deposit?                       
 
  1: $5.00             4: $50.00
 
  2: $10.00           5: $100.00
 
- 3: $20.00              6: Exit
+ 3: $20.00              6: Back
 --------------------------------
 """))
                 
-        except ValueError:
-            input("Please enter a number from 1 to 6. Press enter to retry.")
-            if select == 1:
-                addbalance(5)
-            elif select == 2:
-                addbalance(10)
-            elif select == 3:
-                addbalance(20)
-            elif select == 4:
-                addbalance(50)
-            elif select == 5:
-                addbalance(100)
-            elif select == 6:
-                break
-            else:
-                input("Please enter a number from 1 to 6. Press enter to retry.")
-    
+    except ValueError:
+        input("Please enter a number from 1 to 6. Press enter to retry.")
+    if select == 1:
+        addbalance(5)
+    elif select == 2:
+        addbalance(10)
+    elif select == 3:
+        addbalance(20)
+    elif select == 4:
+        addbalance(50)
+    elif select == 5:
+        addbalance(100)
+    elif select == 6:
+        pass
+    else:
+        input("Please enter a number from 1 to 6. Press enter to retry.")
         
-            
+        
+        
 
 def menu():
     while True:
