@@ -144,7 +144,7 @@ deposit?
 def transactionhist():
     if len(transactionhistory) >= 1:
         print(
-"""----------------------------------------
+"""\n----------------------------------------
              Transactions:              """)
         for transaction in transactionhistory:
             print(f"[{transaction}]")
