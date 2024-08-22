@@ -9,4 +9,5 @@
           "color": "#51a6f5"
         },
       ],
+      "python.analysis.typeCheckingMode": "basic",
 }
