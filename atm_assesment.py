@@ -261,11 +261,12 @@ def deposit():
     function to deduct the funds and handle errors.
     
     """
-    try:
-        # Prints the menu as an input statement and stores the users
-        # Input in a variable
-        select = int(input(
-            f"""
+    while True:
+        try:
+            # Prints the menu as an input statement and stores the users
+            # Input in a variable
+            amount = int(input(
+                f"""
 --------------------------------
 Current Balance: ${balance:.2f}
 --------------------------------
@@ -279,30 +280,31 @@ deposit?
  3: $20.00              6: Back
 --------------------------------
 """))
-    # If a non-integer value is inputted, an error message is displayed
-    # And the user is given an oppurtunity to try again.
-    except ValueError:
-        input("Please enter a number from 1 - 6. Press enter to retry.")
-    # Uses the addbalance() function in order to add the funds
-    # To the users balance.
-    if select == 1:
-        addbalance(5)
-    elif select == 2:
-        addbalance(10)
-    elif select == 3:
-        addbalance(20)
-    elif select == 4:
-        addbalance(50)
-    elif select == 5:
-        addbalance(100)
-    # If '6' is inputted, the main menu of the ATM is printed.
-    elif select == 6:
-        pass
-    # If an integer that isnt in rande 1-6 is entered, then an error
-    # Message is displayed and the user is given another change
-    # To enter a valid input.
-    else:
-        input("Please enter a number from 1 - 6. Press enter to retry.")
+        # If a non-integer value is inputted, an error message is 
+        # Displayed and the user is given an oppurtunity to try again.
+        except ValueError:
+            input("""Please enter a number from 1 - 6. 
+Press enter to retry.""")
+        # Uses the addbalance() function in order to add the funds
+        # To the users balance.
+        if amount == 1:
+            addbalance(5)
+        elif amount == 2:
+            addbalance(10)
+        elif amount == 3:
+            addbalance(20)
+        elif amount == 4:
+            addbalance(50)
+        elif amount == 5:
+            addbalance(100)
+        # If '6' is inputted, the main menu of the ATM is printed.
+        elif select == 6:
+            pass
+        # If an integer that isnt in rande 1-6 is entered, then an error
+        # Message is displayed and the user is given another change
+        # To enter a valid input.
+        else:
+            input("Please enter a number from 1 - 6.Press enter to retry.")
 
 
 def transactionhist():
