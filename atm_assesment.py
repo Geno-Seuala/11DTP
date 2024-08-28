@@ -139,9 +139,9 @@ def withdraw():
     while True:
         while True:
             try:
-                # Prints the menu as an input statement and stores the users
-                # Input in a variable so that the ATM knows how much the
-                # User wants to withdraw from their account.
+                # Prints the menu as an input statement and stores the 
+                # Users input in a variable so that the ATM knows how 
+                # Much the user wants to withdraw from their account.
                 amount = int(input(
                     f"""
 --------------------------------
@@ -159,9 +159,9 @@ withdraw?
 """))
                 break
             # Displays an error message in an input clause and tells the
-            # User how to input into the menu and grants them an opportunity
-            # To retry so that the user can tell what has gone wrong and how
-            # To fix it.
+            # User how to input into the menu and grants them an 
+            # Opportunity to retry so that the user can tell what has 
+            # Gone wrong and how to fix it.
             except ValueError:
                 input("""Please enter a value from 1 - 6.
 Press enter to retry.""")
@@ -181,15 +181,16 @@ Press enter to retry.""")
         elif amount == 5:
             while True:
                 try:
-                    # Asks the user to enter an amount of money to withdraw
-                    # So that they can withdraw custom amounts of money as
-                    # Opposed to the preset $5, $10, $20, and $50 options
+                    # Asks the user to enter an amount of money to 
+                    # Withdraw so that they can withdraw custom amounts 
+                    # Of money as opposed to the preset $5, $10, $20, 
+                    # And $50 options
                     customamount = float(input("Enter amount: "))
-                # Handles invalid inputs (non - floats) so that the program
-                # Doesn't try to do maths with a string meaning the program
-                # Doesnt crash. The user is instead told what went wrong
-                # In simple words and given another chance so that the
-                # Program is accesible and robust (it doesn't crash)
+                # Handles invalid inputs (non - floats) so that the 
+                # Program doesn't try to do maths with a string 
+                # Preventing crashes. The user is instead told what went 
+                # Wrong in simple words and given another chance so that
+                # The program is accesible and robust (it doesn't crash)
                 except ValueError:
                     print("Please enter a number.")
                 # If the amount exceeds the balance, an error message
@@ -210,8 +211,8 @@ Press enter to retry or press 1 to exit.
             else:
                 removebalance(customamount)
                 break
-        # Exits the withdrawl screen and print the main menu of the ATM. So
-        # That further modifications can be made to the users balance/
+        # Exits the withdrawl screen and print the main menu of the ATM. 
+        # So that further modifications can be made to the users balance
         elif amount == 6:
             pass
         else:
@@ -267,8 +268,8 @@ def deposit():
     while True:
         while True:
             try:
-                # Prints the menu as an input statement and stores the users
-                # Input in a variable
+                # Prints the menu as an input statement and stores the
+                # Users input in a variable
                 amount = int(input(
                     f"""
 --------------------------------
@@ -286,7 +287,8 @@ deposit?
 """))
                 break
             # If a non-integer value is inputted, an error message is 
-            # Displayed and the user is given an oppurtunity to try again.
+            # Displayed and the user is given an oppurtunity to try
+            # Again.
             except ValueError:
                 input("""Please enter a value from 1 - 6.
 Press enter to retry.""")
