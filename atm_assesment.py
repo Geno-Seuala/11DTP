@@ -30,7 +30,7 @@ def pinwall(code):
     pin = int(code)
     attemptcount = 0
 
-    # Loop that runs three times or untill the user guesses the pin 
+    # Loop that runs three times or untill the user guesses the pin
     # Correctly.
     while attemptcount < 3:
         try:
@@ -40,8 +40,8 @@ def pinwall(code):
             if attempt == pin:
                 grantaccess = True
                 break
-            # Lets the loop know that the user has made an incorrect 
-            # Guess and lets the user know how many attempts remain and 
+            # Lets the loop know that the user has made an incorrect
+            # Guess and lets the user know how many attempts remain and
             # Prompts them to try again.
             else:
                 attemptcount += 1
@@ -52,7 +52,7 @@ You have {3 - attemptcount} attempts left""")
             input(
                 """Please enter a 4 digit numerical code.
 Press enter to retry.""")
-    # If the user has guesses the pin incorrectly thee times then False 
+    # If the user has guesses the pin incorrectly thee times then False
     # Is Returned and "Access denied" is printed.
     if attemptcount == 3:
         grantaccess = False
@@ -67,8 +67,8 @@ def checkbal():
 
     """
     # An input prompting the user to press enter once they have finished
-    # Reading their balance so that the user isn't bombarded by a large 
-    # Menu screen when trying to read their balance meaning that the 
+    # Reading their balance so that the user isn't bombarded by a large
+    # Menu screen when trying to read their balance meaning that the
     # user has an easier time using the ATM.
     input(
         f"""\n--------------------------------
@@ -79,15 +79,15 @@ Press enter to continue.
     )
 
 
-def removebalance(amount):
+def removefrombalance(amount):
     """Checks if the users balance is greater or equal to the amount of 
     moneyselected. If so then the amount is subtracted from the users 
     balance and the transaction along with the date and time is appended
     to the transactionhistory. If the balance is greater, an error is 
     raised.
-    
+
     Args: Float (amount): 
-    
+
     """
     # Initialises the users balance so that it can be modified in a
     # Withdrawl.
@@ -131,12 +131,13 @@ def withdraw():
     would like to withdraw from their account. The options vary (
     $5, $10, $20, $50, and a custom amount). This uses the remove 
     balance() function to deduct the funds and handle errors.
-    
+
     """
     # A while loop so that errors can be handled effectively without the
     # Program stopping or crashing. This makes the program robust and
     # Harder to break and crash
     while True:
+        amount = 0
         try:
             # Prints the menu as an input statement and stores the users
             # Input in a variable so that the ATM knows how much the
@@ -165,35 +166,42 @@ withdraw?
             input("""Please enter a value from 1 - 6.
 Press enter to retry.""")
 
-    # Uses the removebalance() function in order to deduct the funds
+    # Uses the removefrombalance() function in order to deduct the funds
     # From the users balance.
     if amount == 1:
-        removebalance(5)
+        removefrombalance(5)
     elif amount == 2:
-        removebalance(10)
+        removefrombalance(10)
     elif amount == 3:
-        removebalance(20)
+        removefrombalance(20)
     elif amount == 4:
-        removebalance(50)
+        removefrombalance(50)
         # If '5' is selected, the user is prompted to enter a custom
         # Amount of funds to be deducted.
     elif amount == 5:
         while True:
-            try:
-                # Asks the user to enter an amount of money to withdraw
-                # So that they can withdraw custom amounts of money as
-                # Opposed to the preset $5, $10, $20, and $50 options
-                customamount = float(input("Enter amount: "))
-            # Handles invalid inputs (non - floats) so that the program
-            # Doesn't try to do maths with a string meaning the program
-            # Doesnt crash. The user is instead told what went wrong
-            # In simple words and given another chance so that the
-            # Program is accesible and robust (it doesn't crash)
-            except ValueError:
-                print("Please enter a number.")
-                # If the amount exceeds the balance, an error message
-                # Is displayed and the user is given another chance
-                # To either enter a valid input or go back.
+            while True:
+                customamount = 0
+                try:
+                    # Asks the user to enter an amount of money to
+                    # Withdraw so that they can withdraw custom amounts
+                    # Of money as opposed to the preset $5, $10, $20,
+                    # And $50 options
+                    customamount = float(input("Enter amount: "))
+                    break
+                # Handles invalid inputs (non - floats) so that the
+                # Program doesn't try to do maths with a string meaning
+                # The program doesnt crash. The user is instead told
+                # What went wrong in simple words and given another
+                # Chance so that the program is accesible and robust
+                # (it doesn't crash)
+                except ValueError:
+                    input("""\nPlease enter a number.
+Press enter to try again.
+""")
+                    # If the amount exceeds the balance, an error
+                    # Message is displayed and the user is given another
+                    # Chance to either enter a valid input or go back.
             if customamount > balance:
                 nobalance = input(
                     f"""
@@ -201,29 +209,30 @@ Insufficient funds. You're ${(customamount - balance):.2f} short!
 Press enter to retry or press 1 to exit.
 
 """)
-                # Brings the user back to the menu if '1' is inputted.
-                # So they aren't forced to withdraw if they chose this
-                # Option.
-                if nobalance == '1':
-                    break
-            else:
-                removebalance(customamount)
+                # Brings the user back to the menu if '1' is
+                # inputted. So they aren't forced to withdraw if
+                # They choose this option.
+            if nobalance == '1':
+                break
+            elif balance >= customamount:
+                removefrombalance(customamount)
                 break
     # Exits the withdrawl screen and print the main menu of the ATM. So
     # That further modifications can be made to the users balance/
     elif amount == 6:
         pass
     else:
-        input("Please enter a $ amount. Press enter to retry.")
+        input("""Please enter a value from 1 - 6.
+Press enter to retry.""")
 
 
-def addbalance(amount):
+def addtobalance(amount):
     """A predetermined about of money is added to the users balance and
     the transaction along with the date and time is appended to the 
     transaction history.
-    
-    Args: float (amount)
-    
+
+        Args: float (amount)
+
     """
     # Initialises the balance variable so that it can be modified in a
     # Withdrawl.
@@ -241,9 +250,9 @@ ${amount:.2f} has been deposited.
 Your new balance is ${balance:.2f}
 Press enter to continue.
 """)
-        # Defines, formats, and constructs the deposit amount and
-        # Date/time into a string. So that the user can see later that
-        # A deposit has been made in their account.
+    # Defines, formats, and constructs the deposit amount and
+    # Date/time into a string. So that the user can see later that
+    # A deposit has been made in their account.
     now = datetime.now()
     dateandtime = now.strftime("%d.%m.%Y %H:%M:%S")
     transaction = ("Deposit - " + "$" +
@@ -259,14 +268,16 @@ def deposit():
     would like to deposit into their account. The options vary (5, 10, 
     20, 50, 100, and a custom amount). This uses the remove balance()\
     function to deduct the funds and handle errors.
-    
+
     """
     while True:
-        try:
-            # Prints the menu as an input statement and stores the users
-            # Input in a variable
-            amount = int(input(
-                f"""
+        while True:
+            amount = 0
+            try:
+                # Prints the menu as an input statement and stores the
+                # Users Input in a variable
+                amount = int(input(
+                    f"""
 --------------------------------
 Current Balance: ${balance:.2f}
 --------------------------------
@@ -280,31 +291,38 @@ deposit?
  3: $20.00              6: Back
 --------------------------------
 """))
-        # If a non-integer value is inputted, an error message is 
+                break
+        # If a non-integer value is inputted, an error message is
         # Displayed and the user is given an oppurtunity to try again.
-        except ValueError:
-            input("""Please enter a number from 1 - 6. 
+            except ValueError:
+                input("""Please enter a number from 1 - 6. 
 Press enter to retry.""")
-        # Uses the addbalance() function in order to add the funds
+        # Uses the addtobalance() function in order to add the funds
         # To the users balance.
         if amount == 1:
-            addbalance(5)
+            addtobalance(5)
+            break
         elif amount == 2:
-            addbalance(10)
+            addtobalance(10)
+            break
         elif amount == 3:
-            addbalance(20)
+            addtobalance(20)
+            break
         elif amount == 4:
-            addbalance(50)
+            addtobalance(50)
+            break
         elif amount == 5:
-            addbalance(100)
+            addtobalance(100)
+            break
         # If '6' is inputted, the main menu of the ATM is printed.
-        elif select == 6:
-            pass
+        elif amount == 6:
+            break
         # If an integer that isnt in rande 1-6 is entered, then an error
         # Message is displayed and the user is given another change
         # To enter a valid input.
         else:
-            input("Please enter a number from 1 - 6.Press enter to retry.")
+            input("""Please enter a number from 1 - 6.
+Press enter to retry.""")
 
 
 def transactionhist():
@@ -312,7 +330,7 @@ def transactionhist():
     itterate; an error telling the user that there are no transactions
     recorded and the main menu of the atm is printed once the error is
     dismissed.
-    
+
     """
     # Checks if any transactions have been made, if there are then the
     # Lists of transactions is itterated through and printed so that the
@@ -328,7 +346,7 @@ def transactionhist():
 ----------------------------------------
 Press enter to go back.
 """
-        )
+              )
     # Error message printed.
     else:
         input(
@@ -348,15 +366,15 @@ def menu():
     ATM.
 
     """
-    # Asks the user to enter their pin (3104) in order to verify that 
+    # Asks the user to enter their pin (3104) in order to verify that
     # The right person is accessing the funds in the account.
     if pinwall(3104) == True:
-        # A while loop so that the user can perform multiple operations 
-        # And try again if an error occurs without the need to restart 
+        # A while loop so that the user can perform multiple operations
+        # And try again if an error occurs without the need to restart
         # The program.
         while True:
             try:
-                # Prints a nifty menu screen letting the user know 
+                # Prints a nifty menu screen letting the user know
                 # Which inputs correspond to which operations. it takes
                 # An integer as an input and makes a selection if the
                 # Input is in range 1-5, else an error message is
@@ -376,47 +394,48 @@ Please select an option below:
 --------------------------------
 """
                 ))
-            # Handles non-integer inputs and prompts the user to only 
+            # Handles non-integer inputs and prompts the user to only
             # Enter numbers from one to five. This is an input statement
-            # In order to give the user time to read and learn how to 
+            # In order to give the user time to read and learn how to
             # Use the program.
             except ValueError:
                 input("""Please input a value from 1 - 5. 
 Press enter to retry.
 """)
-            # If 1 is selected, the checkbal() function is called to 
+            # If 1 is selected, the checkbal() function is called to
             # Check the users account's balance.
             if selection == 1:
                 checkbal()
-            # If 2 is selected, the withdraw() function is called to 
+            # If 2 is selected, the withdraw() function is called to
             # Remove funds From the users account.
             elif selection == 2:
                 withdraw()
-            # If 3 is selected, the deposit() function is called to 
+            # If 3 is selected, the deposit() function is called to
             # Add funds to the users acocunt.
             elif selection == 3:
                 deposit()
             # If 4 is selected, the transactionhist() function is called
-            # To itterate over all of the transactions that the user has 
+            # To itterate over all of the transactions that the user has
             # Made so that the user is aware of the activity that has
             # Happened on their account.
             elif selection == 4:
                 transactionhist()
-            # If 5 is selected, the user is printed a parting message 
-            # With a display of their remaining balance rounded to two 
+            # If 5 is selected, the user is printed a parting message
+            # With a display of their remaining balance rounded to two
             # Decimal places and the program exits.
             elif selection == 5:
                 print(
                     f"Goodbye! Your balance is now ${balance:.2f}")
                 break
             # If an integer that isn't in range 1 to 5 is inputted,
-            # Then the user is asked to Only enter valid inputs and is 
+            # Then the user is asked to Only enter valid inputs and is
             # Prompted to press enter in order to retry so that the user
             # Can correctly use the ATM's menu.
             else:
                 input("""Please enter a value from 1 - 5.
 Press enter to retry.
 """)
+
 
 # Prompts the program to start so that the user can view and configure
 # The balance of their account.
