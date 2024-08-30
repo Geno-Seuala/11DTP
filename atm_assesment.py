@@ -2,14 +2,13 @@
 # Are made on the account.
 from datetime import datetime
 
-# Defines variable balance as 0 so that it can be modified by the user.
-# When withdrawls and deposits are made.
-balance = 0.00
-
 # Creates an empty list so that the transactions can be stored within
 # The program.
 transactionhistory = []
 
+# Defines variable balance as 0 so that it can be modified by the user.
+# When withdrawls and deposits are made.
+balance = 0.00
 
 def pinwall(code):
     """Prompts the user to enter a pin. If the users input matches the
@@ -61,11 +60,12 @@ Press enter to retry.""")
     return grantaccess
 
 
-def checkbal():
+def checkbal(balance):
     """Prints the balance of the user's account so that the user can be 
     aware of how much funds are in the account if they wish to deposit 
     or withdraw any money.
 
+    Args: Float (balance) The users current balance
     """
     # An input prompting the user to press enter once they have finished
     # Reading their balance so that the user isn't bombarded by a large 
@@ -80,19 +80,18 @@ Press enter to continue.
     )
 
 
-def removefrombalance(amount):
+def removefrombalance(balance, amount):
     """Checks if the users balance is greater or equal to the amount of 
     moneyselected. If so then the amount is subtracted from the users 
     balance and the transaction along with the date and time is appended
     to the transactionhistory. If the balance is greater, an error is 
     raised.
     
-    Args: Float (amount): 
+    Args: Float (amount) The amount of money to be deducted
+          Float (balance) The users balance before the operation
     
+    Returns: Float (balance) The users balance after the operation
     """
-    # Initialises the users balance so that it can be modified in a
-    # Withdrawl.
-    global balance
     # Checks if the user has enough money to make the withdrawl. so that
     # The user can't withdrawl more than they have.
     if balance >= amount:
@@ -125,14 +124,18 @@ Press enter to continue.
         input(
             f"""Insufficient funds. You're ${(amount - balance):.2f}
 short! Press enter to continue.""")
+    return balance
 
 
-def withdraw():
+def withdraw(balance):
     """Presents the user with an interface asking what amount that they
     would like to withdraw from their account. The options vary (
     $5, $10, $20, $50, and a custom amount). This uses the remove 
     balance() function to deduct the funds and handle errors.
     
+    Args: Float (balance) The users balance before the operation
+    
+    Returns: Float (balance) The users balance after the operation
     """
     # A while loop so that errors can be handled effectively without the
     # Program stopping or crashing. This makes the program robust and
@@ -170,13 +173,13 @@ Press enter to retry.""")
     # Uses the removefrombalance() function in order to deduct the funds
     # From the users balance.
     if amount == 1:
-        removefrombalance(5)
+        balance = removefrombalance(balance, 5)
     elif amount == 2:
-        removefrombalance(10)
+        balance = removefrombalance(balance, 10)
     elif amount == 3:
-        removefrombalance(20)
+        balance = removefrombalance(balance, 20)
     elif amount == 4:
-        removefrombalance(50)
+        balance = removefrombalance(balance, 50)
         # If '5' is selected, the user is prompted to enter a custom
         # Amount of funds to be deducted.
     elif amount == 5:
@@ -227,7 +230,7 @@ Press enter to retry or press 1 to exit.
             if nobalance == '1':
                 break
             elif balance >= customamount:
-                removefrombalance(customamount)
+                balance = removefrombalance(balance, customamount)
                 break
     # Exits the withdrawl screen and print the main menu of the ATM. So
     # That further modifications can be made to the users balance/
@@ -236,19 +239,20 @@ Press enter to retry or press 1 to exit.
     else:
         input("""Please enter a value from 1 - 6.
 Press enter to retry.""")
+    return balance
 
 
-def addtobalance(amount):
+def addtobalance(balance, amount):
     """A predetermined about of money is added to the users balance and
     the transaction along with the date and time is appended to the 
     transaction history.
         
-        Args: float (amount)
-        
+        Args: Float (amount) The amount of money to be deposited
+              Float (balance) The users balance before the deposit
+              
+        Returns: Float (balance) The users balance after the deposit
     """
-    # Initialises the balance variable so that it can be modified in a
-    # Withdrawl.
-    global balance
+    
     # Amount is added to balance so that it is put into the users
     # Account and the user can spend the funds.
     balance += amount
@@ -273,14 +277,18 @@ Press enter to continue.
     # The user can keep track of the activity on their account through
     # Stored data within the program.
     transactionhistory.append(transaction)
+    return balance
 
 
-def deposit():
+def deposit(balance):
     """Presents the user with an interface asking what amount that they
     would like to deposit into their account. The options vary (5, 10, 
     20, 50, 100, and a custom amount). This uses the remove balance()\
     function to deduct the funds and handle errors.
     
+    Args: Float (balance) The users balance before the operation
+    
+    Returns Float (balance) The users balance after the operation
     """
     while True:
         while True:
@@ -312,19 +320,19 @@ Press enter to retry.""")
         # Uses the addtobalance() function in order to add the funds
         # To the users balance.
         if amount == 1:
-            addtobalance(5)
+            balance = addtobalance(balance, 5)
             break
         elif amount == 2:
-            addtobalance(10)
+            balance = addtobalance(balance, 10)
             break
         elif amount == 3:
-            addtobalance(20)
+            balance = addtobalance(balance, 20)
             break
         elif amount == 4:
-            addtobalance(50)
+            balance = addtobalance(balance, 50)
             break
         elif amount == 5:
-            addtobalance(100)
+            balance = addtobalance(balance, 100)
             break
         # If '6' is inputted, the main menu of the ATM is printed.
         elif amount == 6:
@@ -335,6 +343,7 @@ Press enter to retry.""")
         else:
             input("""Please enter a number from 1 - 6.
 Press enter to retry.""")
+    return balance
 
 
 def transactionhist():
@@ -347,7 +356,8 @@ def transactionhist():
     # Checks if any transactions have been made, if there are then the
     # Lists of transactions is itterated through and printed so that the
     # User can view and manually verify the transactions that has taken
-    # Place on their account.
+    # Place on their account. It is itterated so that they are printed
+    # Vertically.
     if len(transactionhistory) >= 1:
         print(
             """\n----------------------------------------
@@ -368,7 +378,7 @@ Press enter to go back.
 """)
 
 
-def menu():
+def menu(balance):
     """A menu that runs once the user has entered the correct pin, here
     the user can select which of the five presented operations they 
     would like the ATM to perform (Check balance, Withdraw Funds, 
@@ -377,7 +387,10 @@ def menu():
     so that the user can choose another option and continue using the 
     ATM.
 
+    Args: Float (balance): The users balance
     """
+
+    
     # Asks the user to enter their pin (3104) in order to verify that 
     # The right person is accessing the funds in the account.
     if pinwall(3104) == True:
@@ -417,15 +430,15 @@ Press enter to retry.
             # If 1 is selected, the checkbal() function is called to 
             # Check the users account's balance.
             if selection == 1:
-                checkbal()
+                checkbal(balance)
             # If 2 is selected, the withdraw() function is called to 
             # Remove funds From the users account.
             elif selection == 2:
-                withdraw()
+                balance = withdraw(balance)
             # If 3 is selected, the deposit() function is called to 
             # Add funds to the users acocunt.
             elif selection == 3:
-                deposit()
+                balance = deposit(balance)
             # If 4 is selected, the transactionhist() function is called
             # To itterate over all of the transactions that the user has 
             # Made so that the user is aware of the activity that has
@@ -450,4 +463,4 @@ Press enter to retry.
 
 # Prompts the program to start so that the user can view and configure
 # The balance of their account.
-menu()
+balance = menu(balance)
