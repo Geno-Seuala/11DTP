@@ -1,0 +1,20 @@
+*{
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+    width: 1920x;
+}
+
+p{
+    background-color: #d7d7d7;
+    border-radius: 20px;
+    border-width: ;
+    font-size: 16pt;
+    line-height: 1.4;
+    margin: auto;
+    width: 800px;
+    text-align: center;
+}
+img{
+    margin: auto;
+    width: 800px;
+}
