@@ -69,8 +69,8 @@ def checkbal(balance):
     """
     # An input prompting the user to press enter once they have finished
     # Reading their balance so that the user isn't bombarded by a large 
-    # Menu screen when trying to read their balance meaning that the 
-    # user has an easier time using the ATM.
+    # Menu screen when trying to read their balance meaning that the
+    # User has an easier time using the ATM.
     input(
         f"""\n--------------------------------
 Your balance is ${balance:.2f}!
