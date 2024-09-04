@@ -1,7 +1,6 @@
 *{
     background-color: #f4f4f4;
     box-sizing: border-box;
-    width: 1920px;
     font-weight: 900;
 }
 
@@ -22,7 +21,8 @@ p{
     padding: 20px;
     border: #000;
     border-width: 50px;
-    padding-left: 606px;
+    margin: 0 auto;
+    text-align: center;
 }
 img{
     width: 700px;
@@ -49,4 +49,14 @@ h1{
 a{
     padding-left: 5px;
     background-color: #d7d7d7;
+}
+button:hover{
+    background-color: rgb(68, 68, 68);
+    color: #d7d7d7;
+}
+#form{
+    margin: 0 auto;
+    width: 400px;
+
+    text-align: right;
 }
