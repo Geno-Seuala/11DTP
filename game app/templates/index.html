@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-</head>
-<body>
-    <div id="container">
+<!-- This template extends the base template, so it inherits the layout from base.html -->
+{% extends 'base.html' %}
 
-    </div>
-</body>
-</html>
+<!-- This is the content that will be inserted into the content block in base.html -->
+{% block content %}
+<p>Welcome to the Game Sales App! Use the navigation menu to view, add, edit, or delete game sales data.</p>
+{% endblock %}

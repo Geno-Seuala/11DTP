@@ -1,0 +1,29 @@
+<!-- Extending the base layout -->
+{% extend 'base.html %}
+
+{% block content %}
+<!-- Heading for the edit game form -->
+<h2>Edit Game</h2>
+
+<!-- Form to update the game details-->
+<form method="post">
+    <!-- Input fields with the current game date filled im -->
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="{{ game.title }}" required> <!-- Current title -->
+
+    <label for="platform">Platform</label>
+    <input type="text" name="platform" id="platform" value="{{ game.platform }}" required> <!-- Current platform -->
+
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" id="genre" value="{{ game.genre }}" required> <!-- Current gemre -->
+
+    <label for="year">Year</label>
+    <input type="number" name="year" id="year" value="{{ game.year }}" required> <!-- Current release year -->
+
+    <label for="sales">Sales (in millions)</label>
+    <input type="number" step="0.01" name="sales" id="sales" value="{{ game.sales }}" required> <!-- Current sales -->
+
+    <!-- Button to submit the updated game details -->
+    <button type="submit">Add Game</button>
+</form>
+{ endblock %}

@@ -1,0 +1,29 @@
+<!-- Extending the base layout -->
+{% extends 'base.html %}
+
+{% block content %}
+<!-- heading for the add game form -->
+<h2>Add a New Game</h2>
+
+<!-- Form to submit a new game-->
+<form method="post">
+    <!-- Input fields for the game details -->
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" required> <!-- Game title -->
+
+    <label for="platform">Platform</label>
+    <input type="text" name="platform" id="platform" required> <!-- Game platform -->
+
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" id="genre" required> <!-- Game gemre -->
+
+    <label for="year">Year</label>
+    <input type="number" name="year" id="year" required> <!-- Release year -->
+
+    <label for="sales">Sales (in millions)</label>
+    <input type="number" step="0.01" name="sales" id="sales" required> <!-- Sales data -->
+
+    <!-- Button to submit the form -->
+    <button type="submit">Add Game</button>
+</form>
+{% enblock %}

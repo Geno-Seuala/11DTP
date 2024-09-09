@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <!-- This defines the character set and makes the page mobile-friendly -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BasePage</title>
+    <title>Game Sales App</title>
+    <!-- Link to the CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div id="container">
+        <!-- The main heading of the sile -->
         <h1>Game Sales App</h1>
+
+        <!-- Navigation links to different pages in the app -->
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('view_games') }}">View Games</a>
+            <a href="{{ url_for('add_game') }}">Add Game</a>
+        </nav>
+
+        <!-- Horizontal line to seperate the navigation from the content -->
+        <hr>
+
+        <!-- Show any flash messages (like succress or error messages) if they exist -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li> <!-- Display each flash message -->
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <!-- This is where other templates can insert their own content -->
+        {% block content %}{% endblock %}
     </div>
 </body>
 </html>
