@@ -1,5 +1,5 @@
 <!-- Extending the base layout -->
-{% extends 'base.html %}
+{% extends 'base.html' %}
 
 {% block content %}
 <!-- heading for the add game form -->
@@ -15,7 +15,7 @@
     <input type="text" name="platform" id="platform" required> <!-- Game platform -->
 
     <label for="genre">Genre</label>
-    <input type="text" name="genre" id="genre" required> <!-- Game gemre -->
+    <input type="text" name="genre" id="genre" required> <!-- Game genre -->
 
     <label for="year">Year</label>
     <input type="number" name="year" id="year" required> <!-- Release year -->
@@ -26,4 +26,4 @@
     <!-- Button to submit the form -->
     <button type="submit">Add Game</button>
 </form>
-{% enblock %}
+{% endblock %}
