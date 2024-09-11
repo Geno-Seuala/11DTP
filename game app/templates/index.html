@@ -1,7 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This defines the character set and makes the page mobile-friendly -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Sales App</title>
+    <!-- Link to the CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
 <!-- This template extends the base template, so it inherits the layout from base.html -->
 {% extends 'base.html' %}
 
 <!-- This is the content that will be inserted into the content block in base.html -->
 {% block content %}
-<p>Welcome to the Game Sales App! Use the navigation menu to view, add, edit, or delete game sales data.</p>
+<p id="upper">Welcome to the Game Sales App!</p>
+<p>Use the navigation menu to view, add, edit, or delete game sales data.</p>
 {% endblock %}
