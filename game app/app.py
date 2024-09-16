@@ -48,7 +48,7 @@ def add_game():
             # If everything is filled in, insert the new game into the 
             # database
             conn = get_db_connection()
-            conn.execute(' INSERT INTO games (title, platform, genre, year, sales) VALUES (?, ?, ?, ?, ?)',
+            conn.execute('INSERT INTO games (title, platform, genre, year, sales) VALUES (?, ?, ?, ?, ?)',
                         (title, platform, genre, year, sales))
         # Save the changes to the database
         conn.commit()
