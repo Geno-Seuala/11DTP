@@ -62,7 +62,7 @@ def add_game():
         #Redirect to the 'view_games' page
         return redirect(url_for('view_games'))
     # If it's a GET request (the user is just visiting the page),
-    # show the form to ass a new game
+    # show the form to add a new game
     return render_template('add_games.html')
 
 # Route to edit an existing game ('/edit/<int:id>')
