@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Gluegun;
+    src: url(GlueGun-GW8Z.ttf) format("truetype");
+}
+
 *{
     box-sizing: border-box;
 }
@@ -8,10 +13,11 @@
     text-align: center;
 }
 h1{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Gluegun;
     font-weight: 200;
-    font-size: 50pt;
-    margin-bottom: 10px;
+    font-size: 80pt;
+    margin-bottom: 0px;
+    padding-top: 10px;
     margin-top: 10px;
     width: 1920px;
     text-align: center ;
