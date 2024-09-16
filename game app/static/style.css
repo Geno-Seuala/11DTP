@@ -27,12 +27,25 @@ nav{
     height: 40px; 
     text-align: center;
 }
+#editbutton{
+    all: unset;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: -2px;
+    padding-bottom: 1px;
+    background-color: rgb(236, 236, 236);
+}
+#editbutton:hover{
+    background-color: rgb(220, 220, 220);
+}
 a{
     display: inline-block;
     background-color: gainsboro;
     color: black;
     text-align: center;
-    text-decoration: none;
+    text-decoration: nrgb(126, 126, 126)
     font-weight: 100;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     height: 40px;

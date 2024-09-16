@@ -26,7 +26,12 @@ def index():
 @app.route('/games')
 def view_games():
     # Render the 'view_games.html' template and display it in the browser
-    return render_template('view_games.html')
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM games")
+    games = cursor.fetchall()
+    conn.close()
+    return render_template('view_games.html', games=games)
 
 # Route to add a new game to the databse ('/add') - handles both GET
 # (show the form) and POST (submit the form)
@@ -66,7 +71,7 @@ def add_game():
 def edit_game(id):
     # Connect to the database and get the game with the given id
     conn = get_db_connection()
-    game = conn.execute(' SELECT * FROM games WHERE id = ?' (id)).fetchone()
+    game = conn.execute('SELECT * FROM games WHERE id = ?', (id,)).fetchone()
     
     # If the form was submitted (POST request)
     if request.method == 'POST':
@@ -82,8 +87,8 @@ def edit_game(id):
             flash('All field are required!')
         else:
             # Update the game in the database with the new data
-            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, year = ?, sales = ?, WHERE id = ?',
-                         title, platform, genre, year, sales, id)
+            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, year = ?, sales = ? WHERE id = ?',
+                         (title, platform, genre, year, sales, id))
             # Save the changes to the database
             conn.commit()
             # Close the connection
@@ -92,7 +97,7 @@ def edit_game(id):
             return redirect(url_for('view_games'))      
     # If it's a GET request, show the form with the existing
     # game data so the user can edit it
-    return render_template('edit_game', game=game)      
+    return render_template('edit_game.html', game=game)      
 
 # Run the Flas app in debug mode (so we can see errors easily while developing)
 if __name__ == '__main__':

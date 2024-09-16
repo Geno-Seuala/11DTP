@@ -1,5 +1,5 @@
 <!-- Extending the base layout -->
-{% extend 'base.html %}
+{% extends 'base.html' %}
 
 {% block content %}
 <!-- Heading for the edit game form -->
@@ -24,6 +24,6 @@
     <input type="number" step="0.01" name="sales" id="sales" value="{{ game.sales }}" required> <!-- Current sales -->
 
     <!-- Button to submit the updated game details -->
-    <button type="submit">Add Game</button>
+    <button type="submit">Submit</button>
 </form>
-{ endblock %}
+{% endblock %}
