@@ -2,22 +2,63 @@
     font-family: Gluegun;
     src: url(GlueGun-GW8Z.ttf) format("truetype");
 }
-
+@font-face {
+    font-family: Arial;
+    src: url(FreeSansBold-Xgdd.ttf);
+}
 *{
+    background-color: #cfd5f2;
     box-sizing: border-box;
 }
 #container{
-    width: 1920px;
-    height: 1080px;
-    background-color: rgb(248, 248, 248);
-    text-align: center;
+
 }
 h1{
-
+    margin: 0;
+    color: rgb(2, 2, 2);
+    font-size: 40pt;
+    font-family: Arial;
+    text-align: left;
+    
 }
-nav{
-
+nav, h1{
+    display: inline-block;
 }
+li a {
+    height: 80px;
+    display: block;
+    color: #ffe8c6;
+    background-color: #3f280e;
+    text-align: center;
+    padding: 33px 16px;
+    text-decoration: none
+}
+
+li a:hover {
+    background-color: #3f280e;
+    color: #ffe8c6
+}
+
+.active {
+    background-color: #ffe8c6;
+    color: #5a3e09
+}
+
+ul {
+    height: 80px;
+    list-style-type: none;
+    border: #000c02;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3f280e
+}
+
+li {
+    display: inline;
+    float: left
+}
+
 #editbutton{
     all: unset;
 
@@ -45,7 +86,6 @@ th{
 
 }
 table{
-    width: 1920px;
     padding-top: 10px;
     padding-left: 600px;
     padding-right: 600px;
