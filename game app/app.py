@@ -67,6 +67,27 @@ def add_game():
 
 # Route to edit an existing game ('/edit/<int:id>')
 # - allows users to update game data
+
+@app.route('/delete/<int:id>', methods=('GET', 'POST'))
+def delete_game(id):
+    conn = get_db_connection()
+    game = conn.execute('SELECT * FROM games WHERE id = ?', (id,)).fetchone()
+
+    # If the form was submitted (POST request)
+    if request.method == 'POST':
+        # Delete the game in the database
+        conn.execute('DELETE FROM games WHERE id = ?', (id,))
+        # Save the changes to the database
+        conn.commit()
+        # Close the connection
+        conn.close()
+        # Redirect to the 'view_games' page
+        return redirect(url_for('view_games'))
+
+    # If it's a GET request, show the form with the existing
+    # game data so the user can edit it
+    return render_template('delete_game.html', game=game)
+
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_game(id):
     # Connect to the database and get the game with the given id

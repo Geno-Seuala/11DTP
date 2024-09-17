@@ -30,9 +30,11 @@
             <td>{{ game.sales }}</td> <!-- Sales (in millions) -->
             <td>
                 <!-- Links to edit or delete the game -->
-                <a id ='editbutton' href="{{ url_for('edit_game', id=game.id) }}">Edit</a>
-                <!-- Form to delete the game (since deleting is usually done with POST) -->
                 <form action="{{ url_for('edit_game', id=game.id) }}" method="post" style="display:inline;">
+                    <button type="submit">Edit</button>
+                </form>
+                <!-- Form to delete the game (since deleting is usually done with POST) -->
+                <form action="{{ url_for('delete_game', id=game.id) }}" method="post" style="display:inline;">
                     <button type="submit">Delete</button>
                 </form>
             </td>
