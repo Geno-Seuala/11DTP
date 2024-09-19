@@ -19,6 +19,10 @@
     <div id="title">
         <p>Welcome to the Game Sales App!</p>
     </div>
-<p>Use the navigation menu to view, add, edit, or delete game sales data.</p>
+<p id=desc>Use the navigation menu to view, add, edit, or delete game sales data.</p>
+
+    <form style="display: inline" action="{{ url_for('add_game') }}" method="get">
+        <button>Add A Game!</button>
+    </form>
 </div>
 {% endblock %}
