@@ -14,6 +14,11 @@
 
 <!-- This is the content that will be inserted into the content block in base.html -->
 {% block content %}
-<p id="upper">Welcome to the Game Sales App!</p>
+<div id="homebackground">
+    <img src="{{ url_for('static', filename='steambackground.jpg') }}" alt="steamlibrary">
+    <div id="title">
+        <p>Welcome to the Game Sales App!</p>
+    </div>
 <p>Use the navigation menu to view, add, edit, or delete game sales data.</p>
+</div>
 {% endblock %}

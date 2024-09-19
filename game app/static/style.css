@@ -7,18 +7,38 @@
     src: url(FreeSansBold-Xgdd.ttf);
 }
 *{
-    background-color: #bdc8ff;
     box-sizing: border-box;
 }
 #container{
 
+#homebackground{
+    background-color: #1f1f2c;
+    translate: -8px -26px;
+    width: 1903px;
 
+}
+#homebackground img{
+    opacity: 3  0%;
+    width: 1903px;
+    z-index: 5;
+
+}
+#title{
+    transform: translateY(-1050px);
+    z-index: 10;
+    font-family: Arial;
+    font-size: 100pt;
+    color: #bdc8ff;
+    position: relative;
+    width: 1000px;
+    margin-left: 100px;
+}
 }
 nav{
     background-color: #1f1f2c;
     position: relative;
     translate: -8px -8px;
-    width: 2000px;
+    width: 1903px;
 }
 h1{
     background-color: #1f1f2c;
@@ -27,15 +47,22 @@ h1{
     font-family: Arial;
     text-align: left;
     color: #bdc8ff;
-    padding-right: 250px;
     position: relative;
     padding-bottom: 20px;
     padding-left: 20px;
   
 }
+.righth1{
+    color: #1f1f2c;
+    -webkit-text-stroke: #bdc8ff;
+    -webkit-text-stroke-width: 1px;
+}
+
 ul, h1{
     display: inline-block;
 }
+
+
 li a {
     height: 80px;
     display: block;
@@ -54,6 +81,12 @@ li a:hover {
 .active {
     background-color: #1f1f2c;
     color: #bdc8ff;
+}
+
+#upper{
+    font-family: Arial;
+    font-size: 50pt;
+
 }
 
 ul {    
