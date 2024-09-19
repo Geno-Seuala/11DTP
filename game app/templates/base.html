@@ -15,12 +15,8 @@
         <nav>
             <!-- The main heading of the sile -->
             <h1>Game Sales App</h1>
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('view_games') }}">View Games</a>
-            <a href="{{ url_for('add_game') }}">Add Game</a>
             <ul>
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a class ="activehref="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('view_games') }}">View Games</a></li>
                 <li><a href="{{ url_for('add_game') }}">Add Game</a></li>
             </ul>
