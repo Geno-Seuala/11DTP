@@ -12,14 +12,14 @@ table{
     text-align: center;
 }
 form{
+    overflow: hidden;
     z-index: 50;
     transform: translateY(-420px);
-    width: 10px;
+    width: 700px;
     margin: 0 auto;
     color: #bdc8ff;
     text-align: right;
-    min-height: 1000px;
-    border-style: solid;
+    margin-left: 800px;
 }
 #titlepage2{
     z-index: 10;
@@ -28,7 +28,8 @@ form{
     color: #bdc8ff;
     position: relative;
     width: 1000px;
-    margin-left: 100px;
+    margin-left: 200px;
+    margin-top: 150px;
 }
 th{
     height: 10px;
@@ -48,9 +49,21 @@ td{
     border: 1px;
     border-style: double;
 }
+#addlabel{
+    all: unset;
+    padding-right: 20px;
+    font-size: 20pt;
+    margin-top: -10px;
+}
 input{
     background-color: #2d2d3f;
+    color: #bdc8ff;
     border-color: #bdc8ff;
+    height: 35px;
+    transform: translateY(-2px);
+    font-size: 10pt;
+
+
 }
 *{
     box-sizing: border-box;
@@ -101,12 +114,33 @@ html, body {
     z-index: 10;
     text-align: center;
 }
-
+#addbutton{
+    all: unset;
+    width: 100px;
+    height: 15px;
+    z-index: 20;
+    display: block;
+    color: #bdc8ff;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #2d2d3f;
+    text-align: center;
+    padding: 10px;
+    transform: translateX(550px);
+    margin-top: 10px;
+}
+#addbutton:hover{
+    color: #bdc8ff;
+    background-color: #3e3e57;
+    
+}
 #homebackground button{
     all: unset;
     width: 200px;
     height: 15px;
     z-index: 20;
+    border-style: solid;
+    border-width: 1px;
     transform: translateY(-1555px);
     display: block;
     color: #bdc8ff;
