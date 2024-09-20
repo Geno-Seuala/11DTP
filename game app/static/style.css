@@ -6,9 +6,55 @@
     font-family: Arial;
     src: url(FreeSansBold-Xgdd.ttf);
 }
-
+table{
+    max-width: 1000px;
+    min-width: 1000px;
+    text-align: center;
+}
+form{
+    z-index: 50;
+    transform: translateY(-420px);
+    width: 10px;
+    margin: 0 auto;
+    color: #bdc8ff;
+    text-align: right;
+    min-height: 1000px;
+    border-style: solid;
+}
+#titlepage2{
+    z-index: 10;
+    font-family: Arial;
+    font-size: 100pt;
+    color: #bdc8ff;
+    position: relative;
+    width: 1000px;
+    margin-left: 100px;
+}
+th{
+    height: 10px;
+    border-left: 2px;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-right: 2px;
+    font-size: 20pt;
+    border-color: #bdc8ff;
+    border-style: solid;
+    color: #bdc8ff;
+    padding: 20px;
+}
+td{
+    color: #bdc8ff;
+    border-color: #bdc8ff;
+    border: 1px;
+    border-style: double;
+}
+input{
+    background-color: #2d2d3f;
+    border-color: #bdc8ff;
+}
 *{
     box-sizing: border-box;
+
 }
 html, body {
     height: 100px;
@@ -34,7 +80,7 @@ html, body {
     z-index: 5;
 }
 
-#title{
+#titlepage{
     transform: translateY(-1020px);
     z-index: 10;
     font-family: Arial;
@@ -152,7 +198,6 @@ li {
 }
 
 #editbutton{
-    all: unset;
 }
 
 #editbutton:hover{}
@@ -172,9 +217,3 @@ h2{}
 
 th{}
 
-table{
-    padding-top: 10px;
-    padding-left: 600px;
-    padding-right: 600px;
-    text-align: center;
-}
