@@ -41,6 +41,7 @@ def add_game():
     if request.method == 'POST':
         # Get form data: title, platform, genre, year, sales
         title = request.form['title']
+        logo = request.form['logo']
         platform = request.form['platform']
         genre = request.form['genre']
         year = request.form['year']
@@ -53,8 +54,8 @@ def add_game():
             # If everything is filled in, insert the new game into the 
             # database
             conn = get_db_connection()
-            conn.execute('INSERT INTO games (title, platform, genre, year, sales) VALUES (?, ?, ?, ?, ?)',
-                        (title, platform, genre, year, sales))
+            conn.execute('INSERT INTO games (title, logo, platform, genre, year, sales) VALUES (?, ?, ?, ?, ?, ?)',
+                        (title, logo, platform, genre, year, sales))
         # Save the changes to the database
         conn.commit()
         # Close the connection
@@ -98,6 +99,7 @@ def edit_game(id):
     if request.method == 'POST':
         # Get the updated data from the form
         title = request.form['title']
+        logo = request.form['logo']
         platform = request.form['platform']
         genre = request.form['genre']
         year = request.form['year']
@@ -108,8 +110,8 @@ def edit_game(id):
             flash('All field are required!')
         else:
             # Update the game in the database with the new data
-            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, year = ?, sales = ? WHERE id = ?',
-                         (title, platform, genre, year, sales, id))
+            conn.execute('UPDATE games SET title = ?, logo + ?, platform = ?, genre = ?, year = ?, sales = ? WHERE id = ?',
+                         (title, logo, platform, genre, year, sales, id))
             # Save the changes to the database
             conn.commit()
             # Close the connection

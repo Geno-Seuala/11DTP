@@ -6,10 +6,29 @@
     font-family: Arial;
     src: url(FreeSansBold-Xgdd.ttf);
 }
-table{
-    max-width: 1000px;
-    min-width: 1000px;
+.button{
+    all: unset; 
+    background-color: #1f1f2c;
+    color: #bdc8ff;
+    border-style: solid;
+    border-left: 2px;
+    border-top: 0px;
+    border-bottom: 0px;
+    width: 251px;
+    height: 30px;
+    padding: 10px;
+    float: left;
     text-align: center;
+    margin: 0px;
+}
+.button:hover{
+    background-color: #2d2d3f;
+    color: #bdc8ff; 
+}
+table{
+    text-align: center;
+    width: 1200px;
+    margin-left: 352px;
 }
 form{
     overflow: hidden;
@@ -19,8 +38,9 @@ form{
     margin: 0 auto;
     color: #bdc8ff;
     text-align: right;
-    margin-left: 800px;
+
 }
+
 #titlepage2{
     z-index: 10;
     font-family: Arial;
@@ -35,7 +55,7 @@ th{
     height: 10px;
     border-left: 2px;
     border-bottom: 0px;
-    border-top: 0px;
+    border-top: 2px;
     border-right: 2px;
     font-size: 20pt;
     border-color: #bdc8ff;
@@ -81,14 +101,14 @@ html, body {
 #homebackground{
     background-color: #1f1f2c;
     translate: -8px -26px;
-    width: 1913px;
+    width: 1912px;
     overflow: hidden;
     height: 826px;
 }
 
 #homebackground img{
     opacity: 20%;
-    width: 1950px;
+    width: 1900px;
     height: 1000px;
     z-index: 5;
 }
