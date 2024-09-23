@@ -42,7 +42,6 @@ form{
 }
 
 #titlepage2{
-    z-index: 10;
     font-family: Arial;
     font-size: 100pt;
     color: #bdc8ff;
@@ -76,6 +75,7 @@ td{
     margin-top: -10px;
 }
 input{
+    z-index: 1000;
     background-color: #2d2d3f;
     color: #bdc8ff;
     border-color: #bdc8ff;

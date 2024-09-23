@@ -6,14 +6,14 @@
 <h2 id="titlepage2">Add a New Game</h2>
 
 <!-- Form to submit a new game-->
-<form method="post" action="upload.php" enctype="multipart/form-data">
+<form action="upload.php" method="post"
+enctype="multipart/form-data">
     <!-- Input fields for the game details -->
     <label id="addlabel" for="title">Title</label>
     <input type="text" name="title" id="title" required><br><br> <!-- Game title -->    
 
-    <label id="addlabel" for="logo">Logo</label>
-    <input type="file" accept="image/*" name="logo" id="logo" required><br><br>
-    <img id="preview" src="#" alt="Image Preview" style="display:none;" /> <!-- Game Logo -->    
+    <label for="logo">Logo</label>
+    <input type="file" id="imageUpload" name="image" accept="image/*"><br><br> <!-- Game Logo -->    
 
     <label id="addlabel" for="platform">Platform</label>
     <input type="text" name="platform" id="platform" required><br><br> <!-- Game platform -->
@@ -29,5 +29,5 @@
 
     <!-- Button to submit the form -->
     <button id="addbutton" type="submit">Add Game</button>
-</form>
+
 {% endblock %}
