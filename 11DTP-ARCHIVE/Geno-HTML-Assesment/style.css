@@ -1,0 +1,374 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #ffe8c6;
+    box-sizing: border-box;
+    max-width: 1857px
+}
+th{
+    border-left: 2px;
+    border-color: ;
+}
+nav {
+    margin-top: -20px
+}
+
+nav img {
+    height: 40px;
+    margin-bottom: -67px;
+    margin-left: 1380px
+}
+
+#container {
+    width: 1857px;
+    margin: 0 auto;
+    height: auto
+}
+
+ul {
+    height: 80px;
+    list-style-type: none;
+    border: #000c02;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3f280e
+}
+
+li {
+    display: inline;
+    float: left
+}
+
+li a {
+    height: 80px;
+    display: block;
+    color: #ffe8c6;
+    background-color: #3f280e;
+    text-align: center;
+    padding: 33px 16px;
+    text-decoration: none
+}
+
+li a:hover {
+    background-color: #3f280e;
+    color: #ffe8c6
+}
+
+.active {
+    background-color: #ffe8c6;
+    color: #5a3e09
+}
+
+#homebackground {
+    width: 1857px;
+    height: 764px;
+    background-color: #000
+}
+
+#homebackground img {
+    width: 1857px;
+    opacity: 60%
+}
+
+.inactive:hover {
+    background-color: #ffe8c6;
+    color: #3f280e
+}
+
+@font-face {
+    font-family: Mutant;
+    src: url(fonts/MutantAcademyBB.ttf)
+}
+
+#title {
+    font-family: Mutant;
+    font-size: 150px;
+    margin-top: -500px;
+    z-index: 1;
+    position: relative;
+    color: #ffe8c6;
+    background-color: #3f280ec2;
+    text-align: center;
+    border: 1px;
+    border-color: #ffe8c6;
+    align-content: center;
+    width: 850px;
+    border-radius: 40px;
+    margin-left: 500px;
+    padding-top: 15px;
+    border-style: double;
+    height: 320px
+}
+
+h1 {
+    text-align: center;
+    font-family: Mutant;
+    color: #3f280ec2;
+    font-size: 80px;
+    margin-top: 200px;
+    background-color: #ffe8c6;
+    font-weight: 599
+}
+
+#about p {
+    text-align: center;
+    width: 1000px;
+    padding-left: 436px
+}
+
+#aboutbody {
+    padding-bottom: 40px
+}
+
+#sponsors {
+    display: inline;
+    hyphenate-character: 60px;
+    align-content: center;
+    margin-left: 536px;
+    border: 4px;
+    width: 1872px;
+    border-left: 0;
+    border-right: 0;
+    border-style: double;
+    border-color: #3f280e;
+    padding-top: 45px;
+    padding-bottom: 10px
+}
+
+#sponsors img {
+    align-content: center;
+    height: 40px;
+    width: min-content;
+    padding-right: 50px
+}
+
+#aboutbball {
+    margin-top: -150px;
+    margin-left: 50px
+}
+
+#aboutbballbody p {
+    margin-left: 300px;
+    width: 500px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 25px
+}
+
+#aboutbball img {
+    width: auto;
+    height: 300px;
+    margin-left: 900px;
+    opacity: 100%;
+    border-color: #3f280e;
+    border: 4px;
+    border-style: double;
+    margin-top: -310px;
+    position: absolute
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #3f280eea;
+    color: #ffe8c6;
+    margin-top: 700px;
+    border-color: #3f280e;
+    border: 4px;
+    border-style: double;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0
+}
+
+footer a {
+    color: #ffe8c6;
+    text-decoration: underline
+}
+
+.index {
+    padding-bottom: 300px
+}
+
+#coach {
+    width: 800px;
+    margin-left: 536px;
+    align-content: center
+}
+
+#coach img {
+    width: 300px;
+    border: 4px;
+    border-style: double;
+    border-color: #3f280e
+}
+
+#coach p {
+    width: 400px
+}
+
+#coach p,
+h2 {
+    margin-left: 350px
+}
+
+#coachtext {
+    margin-top: -280px
+}
+
+#backcourt {
+    width: 900px;
+    margin-left: 486px;
+    margin-top: 100px
+}
+
+#backcourt img {
+    width: 300px;
+    height: 300px;
+    border: 4px;
+    border-style: double;
+    border-color: #3f280e;
+    float: left
+}
+
+#pg {
+    float: left
+}
+
+#pg p {
+    width: 300px;
+    text-align: center
+}
+
+table {
+    width: 300px
+}
+
+.table td {
+    padding-left: 15px
+}
+
+#sg p {
+    width: 300px;
+    text-align: center
+}
+
+#backcourt h3 {
+    background: #ffe8c6cb;
+    color: #3f280e;
+    position: absolute;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 284px;
+    font-size: 20px;
+    margin-left: 100px;
+    position: absolute
+}
+
+#sg {
+    float: right
+}
+
+h4 {
+    text-align: center;
+    width: 300px
+}
+
+#frontcourt {
+    margin-left: 374px;
+    display: inline-flex;
+    align-content: center;
+    align-items: center
+}
+
+#frontcourt img {
+    width: 300px;
+    height: 300px;
+    border: 4px;
+    border-style: double;
+    border-color: #3f280e;
+    float: left
+}
+
+#sf {
+    float: left
+}
+
+#sf p {
+    width: 300px;
+    text-align: center
+}
+
+table {
+    width: 300px
+}
+
+.table td {
+    padding-left: 15px
+}
+
+#pf p {
+    width: 300px;
+    text-align: center
+}
+
+#frontcourt h3 {
+    background: #ffe8c6cb;
+    color: #3f280e;
+    position: absolute;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 284px;
+    font-size: 20px;
+    margin-left: 100px;
+    position: absolute
+}
+
+#pf {
+    padding-inline: 100px
+}
+
+#frontcourt h4 {
+    text-align: center;
+    width: 300px
+}
+
+#c p {
+    width: 300px;
+    text-align: center
+}
+
+#bench img {
+    width: 60px;
+    display: block;
+    padding: 5px;
+    border: #3f280e;
+    border: .5px;
+    border-style: solid
+}
+
+#bench {
+    margin-left: 906px;
+    margin-top: -1050px
+}
+
+#bench h4 {
+    margin-left: -100px
+}
+
+#body {
+    margin-top: -150px
+}
+
+#body h1 {
+    font-family: Mutant;
+    z-index: 1;
+    position: relative;
+    color: #3f280ec2;
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: -50px;
+    padding-bottom: 10px
+}
