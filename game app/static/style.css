@@ -76,6 +76,13 @@ td{
     font-size: 20pt;
     margin-top: -10px;
 }
+::-webkit-file-upload-button{
+    height: 100%;
+    background-color: #2d2d3f;
+    border-width: 0.5px;
+    color: #bdc8ff;
+    border-color: #bdc8ff;
+}
 input{  
     z-index: 1000;
     background-color: #2d2d3f;
